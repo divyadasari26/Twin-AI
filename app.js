@@ -1682,31 +1682,76 @@ function initTypewriterEffect() {
   setTimeout(typeLoop, 2000);
 }
 
-// Expose functions to window global scope for HTML event listener compatibility in production builds
-const functionsToExpose = [
-  refreshIcons, showView, toggleAuthForm, simulateLogin, handleRegister,
-  handleForgot, handleVerify, logout, switchDashboardTab, toggleMobileSidebar,
-  setupFaqClickHandlers, toggleFaq, toggleBillingPeriod, renderKnowledgeTable,
-  toggleUploadType, triggerFileSelector, handleFileSelected, startUrlCrawl,
-  simulateKnowledgeUpload, retrainDocument, deleteDocument, triggerManualRetrain,
-  changeMockAvatar, selectVoiceProvider, triggerVoicePreview, syncCustomizerPreview,
-  syncWidgetColors, syncWidgetPosition, syncWidgetTheme, syncWidgetRadius,
-  toggleVoiceButtonVisibility, copyEmbedScript, renderConversationsInbox,
-  loadConversationDetails, filterConversations, exportActiveChat, getInitials,
-  renderLeadsTable, filterLeadsTable, exportLeadsCSV, setupCalendar,
-  selectCalendarDate, renderMeetingsTimeline, prevMonth, nextMonth,
-  removeTeamMember, inviteTeamMember, updateSettingsProfile, handleDemoChatKey,
-  submitDemoChat, sendDemoPreset, appendDemoMessage, updateDemoChatWindowScroll,
-  triggerDemoAiResponse, toggleWidgetChatWindow, openDemoChat, handleWidgetKey,
-  submitWidgetChat, submitWidgetMessage, appendWidgetMessage, simulateWidgetCallScreen,
-  simulateVoiceCall, hangupWidgetCall, toggleNotificationsPanel, clearNotifCenter,
-  initializeDashboardCharts, updateOverviewChart, initPremiumAnimations,
-  initCounterRollups, animateSingleCounter, initTypewriterEffect
-];
-
-functionsToExpose.forEach(fn => {
-  if (typeof fn === 'function') {
-    window[fn.name] = fn;
-  }
-});
+// Expose functions to window global scope for HTML event listener compatibility (mangler/minifier safe)
+window.refreshIcons = refreshIcons;
+window.showView = showView;
+window.toggleAuthForm = toggleAuthForm;
+window.simulateLogin = simulateLogin;
+window.handleRegister = handleRegister;
+window.handleForgot = handleForgot;
+window.handleVerify = handleVerify;
+window.logout = logout;
+window.switchDashboardTab = switchDashboardTab;
+window.toggleMobileSidebar = toggleMobileSidebar;
+window.setupFaqClickHandlers = setupFaqClickHandlers;
+window.toggleFaq = toggleFaq;
+window.toggleBillingPeriod = toggleBillingPeriod;
+window.renderKnowledgeTable = renderKnowledgeTable;
+window.toggleUploadType = toggleUploadType;
+window.triggerFileSelector = triggerFileSelector;
+window.handleFileSelected = handleFileSelected;
+window.startUrlCrawl = startUrlCrawl;
+window.simulateKnowledgeUpload = simulateKnowledgeUpload;
+window.retrainDocument = retrainDocument;
+window.deleteDocument = deleteDocument;
+window.triggerManualRetrain = triggerManualRetrain;
+window.changeMockAvatar = changeMockAvatar;
+window.selectVoiceProvider = selectVoiceProvider;
+window.triggerVoicePreview = triggerVoicePreview;
+window.syncCustomizerPreview = syncCustomizerPreview;
+window.syncWidgetColors = syncWidgetColors;
+window.syncWidgetPosition = syncWidgetPosition;
+window.syncWidgetTheme = syncWidgetTheme;
+window.syncWidgetRadius = syncWidgetRadius;
+window.toggleVoiceButtonVisibility = toggleVoiceButtonVisibility;
+window.copyEmbedScript = copyEmbedScript;
+window.renderConversationsInbox = renderConversationsInbox;
+window.loadConversationDetails = loadConversationDetails;
+window.filterConversations = filterConversations;
+window.exportActiveChat = exportActiveChat;
+window.getInitials = getInitials;
+window.renderLeadsTable = renderLeadsTable;
+window.filterLeadsTable = filterLeadsTable;
+window.exportLeadsCSV = exportLeadsCSV;
+window.setupCalendar = setupCalendar;
+window.selectCalendarDate = selectCalendarDate;
+window.renderMeetingsTimeline = renderMeetingsTimeline;
+window.prevMonth = prevMonth;
+window.nextMonth = nextMonth;
+window.removeTeamMember = removeTeamMember;
+window.inviteTeamMember = inviteTeamMember;
+window.updateSettingsProfile = updateSettingsProfile;
+window.handleDemoChatKey = handleDemoChatKey;
+window.submitDemoChat = submitDemoChat;
+window.sendDemoPreset = sendDemoPreset;
+window.appendDemoMessage = appendDemoMessage;
+window.updateDemoChatWindowScroll = updateDemoChatWindowScroll;
+window.triggerDemoAiResponse = triggerDemoAiResponse;
+window.toggleWidgetChatWindow = toggleWidgetChatWindow;
+window.openDemoChat = openDemoChat;
+window.handleWidgetKey = handleWidgetKey;
+window.submitWidgetChat = submitWidgetChat;
+window.submitWidgetMessage = submitWidgetMessage;
+window.appendWidgetMessage = appendWidgetMessage;
+window.simulateWidgetCallScreen = simulateWidgetCallScreen;
+window.simulateVoiceCall = simulateVoiceCall;
+window.hangupWidgetCall = hangupWidgetCall;
+window.toggleNotificationsPanel = toggleNotificationsPanel;
+window.clearNotifCenter = clearNotifCenter;
+window.initializeDashboardCharts = initializeDashboardCharts;
+window.updateOverviewChart = updateOverviewChart;
+window.initPremiumAnimations = initPremiumAnimations;
+window.initCounterRollups = initCounterRollups;
+window.animateSingleCounter = animateSingleCounter;
+window.initTypewriterEffect = initTypewriterEffect;
 
