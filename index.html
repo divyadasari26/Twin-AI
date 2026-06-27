@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
+  <!-- Scroll Progress Indicator -->
+  <div id="scroll-progress" class="scroll-progress-bar"></div>
 
   <!-- ==========================================
        1. LANDING PAGE VIEW
@@ -33,22 +35,24 @@
 
     <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-content">
-        <div class="hero-tag">
+      <div class="hero-bg-orb orb-1"></div>
+      <div class="hero-bg-orb orb-2"></div>
+      <div class="hero-content scroll-reveal reveal-left">
+        <div class="hero-tag animate-pulse-glow">
           <i data-lucide="shield"></i> Multi-Tenant Secure Enterprise RAG
         </div>
-        <h1 class="hero-title">Your AI Employee That Never Sleeps</h1>
+        <h1 class="hero-title split-text text-glow-gradient">Your AI Employee That Never Sleeps</h1>
         <p class="hero-subtitle">
-          Build your own AI Digital Twin that answers customers, books appointments, generates leads, prepares proposals, and speaks naturally—24/7.
+          Build your custom AI Digital Twin that <span id="hero-typewriter" class="typewriter-text">answers customers 24/7</span><span class="typewriter-cursor">|</span> automatically with enterprise precision.
         </p>
         <div class="hero-buttons">
-          <button class="btn btn-primary btn-large" onclick="showView('auth', 'register')">Get Started</button>
+          <button class="btn btn-primary btn-large btn-glow" onclick="showView('auth', 'register')">Get Started</button>
           <button class="btn btn-secondary btn-large" onclick="openDemoChat()">Book Demo</button>
           <button class="btn btn-secondary btn-large" onclick="simulateVoiceCall()"><i data-lucide="phone"></i> Watch Demo</button>
         </div>
       </div>
       <div class="hero-visual">
-        <div class="assistant-mockup">
+        <div class="assistant-mockup scroll-reveal reveal-right animate-float">
           <div class="mockup-header">
             <div class="mockup-avatar">
               <i data-lucide="bot"></i>
@@ -98,25 +102,25 @@
 
     <!-- How It Works -->
     <section id="how-it-works" class="how-it-works">
-      <h2 class="section-heading">Deploy Your Digital Twin in 4 Steps</h2>
-      <p class="body-text" style="max-width: 600px; margin: 15px auto 0 auto;">No complex code, prompt engineering, or server setups required.</p>
+      <h2 class="section-heading scroll-reveal reveal-up">Deploy Your Digital Twin in 4 Steps</h2>
+      <p class="body-text scroll-reveal reveal-up" style="max-width: 600px; margin: 15px auto 0 auto;">No complex code, prompt engineering, or server setups required.</p>
       <div class="how-it-works-grid">
         <!-- Step 1 -->
-        <div class="step-card">
+        <div class="step-card scroll-reveal reveal-left">
           <div class="step-number">Step 1</div>
           <div class="step-icon-box"><i data-lucide="upload"></i></div>
           <h3 class="step-title">Upload Business Data</h3>
           <p class="step-desc">Upload PDFs, CSVs, FAQs, web links, policies, and catalogs in seconds.</p>
         </div>
         <!-- Step 2 -->
-        <div class="step-card">
+        <div class="step-card scroll-reveal reveal-up">
           <div class="step-number">Step 2</div>
           <div class="step-icon-box"><i data-lucide="brain"></i></div>
           <h3 class="step-title">TwinAI Learns</h3>
           <p class="step-desc">Our RAG engine processes and structures a secure custom knowledge base.</p>
         </div>
         <!-- Step 3 -->
-        <div class="step-card">
+        <div class="step-card scroll-reveal reveal-flip">
           <div class="step-number">Step 3</div>
           <div class="step-icon-box"><i data-lucide="bot"></i></div>
           <h3 class="step-title">Embed Chat Widget</h3>
@@ -124,7 +128,7 @@
           <div class="step-code">&lt;script src="https://twinai.ai/widget.js"&gt;&lt;/script&gt;</div>
         </div>
         <!-- Step 4 -->
-        <div class="step-card">
+        <div class="step-card scroll-reveal reveal-right">
           <div class="step-number">Step 4</div>
           <div class="step-icon-box"><i data-lucide="phone"></i></div>
           <h3 class="step-title">Customers Connect</h3>
@@ -135,10 +139,10 @@
 
     <!-- Features Section -->
     <section id="features" class="features-section">
-      <h2 class="section-heading" style="text-align: center;">Loaded With Enterprise AI Abilities</h2>
+      <h2 class="section-heading scroll-reveal reveal-up" style="text-align: center;">Loaded With Enterprise AI Abilities</h2>
       <div class="features-grid">
         <!-- Chat AI -->
-        <div class="feature-card">
+        <div class="feature-card scroll-reveal reveal-up">
           <div class="feature-header">
             <div class="feature-icon-box"><i data-lucide="message-circle"></i></div>
             <h3 class="feature-title">AI Chat</h3>
@@ -151,7 +155,7 @@
           </ul>
         </div>
         <!-- Voice AI -->
-        <div class="feature-card">
+        <div class="feature-card scroll-reveal reveal-up">
           <div class="feature-header">
             <div class="feature-icon-box"><i data-lucide="phone"></i></div>
             <h3 class="feature-title">Voice AI</h3>
@@ -164,7 +168,7 @@
           </ul>
         </div>
         <!-- Bookings -->
-        <div class="feature-card">
+        <div class="feature-card scroll-reveal reveal-up">
           <div class="feature-header">
             <div class="feature-icon-box"><i data-lucide="calendar"></i></div>
             <h3 class="feature-title">Appointment Booking</h3>
@@ -177,7 +181,7 @@
           </ul>
         </div>
         <!-- Lead Generation -->
-        <div class="feature-card">
+        <div class="feature-card scroll-reveal reveal-up">
           <div class="feature-header">
             <div class="feature-icon-box"><i data-lucide="users"></i></div>
             <h3 class="feature-title">Lead Generation</h3>
@@ -190,7 +194,7 @@
           </ul>
         </div>
         <!-- Product Recommendation -->
-        <div class="feature-card">
+        <div class="feature-card scroll-reveal reveal-up">
           <div class="feature-header">
             <div class="feature-icon-box"><i data-lucide="brain"></i></div>
             <h3 class="feature-title">Product Recommendations</h3>
@@ -203,7 +207,7 @@
           </ul>
         </div>
         <!-- Quote Generator -->
-        <div class="feature-card">
+        <div class="feature-card scroll-reveal reveal-up">
           <div class="feature-header">
             <div class="feature-icon-box"><i data-lucide="database"></i></div>
             <h3 class="feature-title">Instant Quotation Engine</h3>
@@ -218,11 +222,43 @@
       </div>
     </section>
 
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits-section scroll-reveal reveal-up">
+      <h2 class="section-heading scroll-reveal reveal-up" style="text-align: center;">Why Enterprise Leaders Choose TwinAI</h2>
+      <p class="body-text scroll-reveal reveal-up" style="max-width: 600px; margin: 15px auto 0 auto; text-align: center;">Transform customer service, operations, and scaling speeds with our AI agent fleet.</p>
+      
+      <div class="benefits-grid scroll-reveal reveal-up" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px;">
+        <div class="benefit-card">
+          <div class="benefit-icon-box" style="width: 48px; height: 48px; border-radius: 12px; background: rgba(6, 182, 212, 0.1); color: var(--accent-cyan); display: flex; align-items: center; justify-content: center; margin-bottom: 25px;">
+            <i data-lucide="shield" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h3 class="card-title" style="font-size: 20px; font-weight: 600; margin-bottom: 15px;">Enterprise Privacy</h3>
+          <p class="body-text" style="font-size: 14px; line-height: 1.6;">Your business database is fully sandboxed. We encrypt vector indexes at rest using AES-256 and never train public base models with your proprietary knowledge bases.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon-box" style="width: 48px; height: 48px; border-radius: 12px; background: rgba(59, 130, 246, 0.1); color: var(--primary); display: flex; align-items: center; justify-content: center; margin-bottom: 25px;">
+            <i data-lucide="analytics" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h3 class="card-title" style="font-size: 20px; font-weight: 600; margin-bottom: 15px;">Cost Optimization</h3>
+          <p class="body-text" style="font-size: 14px; line-height: 1.6;">Reduce tier-1 customer support expenses by up to 80% while scaling call capacity to infinite levels. Handle thousands of inquiries simultaneously with zero queue time.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon-box" style="width: 48px; height: 48px; border-radius: 12px; background: rgba(139, 92, 246, 0.1); color: var(--secondary); display: flex; align-items: center; justify-content: center; margin-bottom: 25px;">
+            <i data-lucide="bot" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h3 class="card-title" style="font-size: 20px; font-weight: 600; margin-bottom: 15px;">Omnichannel Flow</h3>
+          <p class="body-text" style="font-size: 14px; line-height: 1.6;">Deploy your twin seamlessly across chat widgets, phone lines, scheduling apps, and internal CRMs. Keep customer conversations synchronized across every touchpoint.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Interactive Chatbot Playground -->
     <section id="demo" class="demo-section">
-      <h2 class="section-heading">Test Your AI Digital Twin Live</h2>
-      <p class="body-text" style="max-width: 600px; margin: 15px auto 0 auto;">Select a prompt or type below to see how fast and smart the Twin answers.</p>
-      <div class="demo-box">
+      <h2 class="section-heading scroll-reveal reveal-up">Test Your AI Digital Twin Live</h2>
+      <p class="body-text scroll-reveal reveal-up" style="max-width: 600px; margin: 15px auto 0 auto;">Select a prompt or type below to see how fast and smart the Twin answers.</p>
+      <div class="demo-box scroll-reveal reveal-scale">
         <div class="demo-sidebar">
           <div class="demo-sidebar-top">
             <span class="caption">Choose a Customer Query</span>
@@ -261,14 +297,14 @@
 
     <!-- Pricing Section -->
     <section id="pricing" class="pricing-section">
-      <h2 class="section-heading">Simple, Transparent Pricing</h2>
-      <div class="pricing-tabs">
+      <h2 class="section-heading scroll-reveal reveal-up">Simple, Transparent Pricing</h2>
+      <div class="pricing-tabs scroll-reveal reveal-up">
         <button class="pricing-tab active" id="btn-billing-monthly" onclick="toggleBillingPeriod('monthly')">Monthly Billing</button>
         <button class="pricing-tab" id="btn-billing-annual" onclick="toggleBillingPeriod('annual')">Annual Billing (20% Off)</button>
       </div>
       <div class="pricing-grid">
         <!-- Starter -->
-        <div class="pricing-card">
+        <div class="pricing-card scroll-reveal reveal-up">
           <div class="pricing-header">
             <h3>Starter</h3>
             <p class="small-text">For small businesses exploring AI.</p>
@@ -284,7 +320,7 @@
           <button class="btn btn-secondary" onclick="showView('auth', 'register')">Start Starter Trial</button>
         </div>
         <!-- Professional -->
-        <div class="pricing-card premium-tier">
+        <div class="pricing-card premium-tier scroll-reveal reveal-up">
           <div class="badge-featured">RECOMMENDED</div>
           <div class="pricing-header">
             <h3>Professional</h3>
@@ -302,7 +338,7 @@
           <button class="btn btn-primary" onclick="showView('auth', 'register')">Start Professional Trial</button>
         </div>
         <!-- Enterprise -->
-        <div class="pricing-card">
+        <div class="pricing-card scroll-reveal reveal-up">
           <div class="pricing-header">
             <h3>Enterprise</h3>
             <p class="small-text">For large-scale tailored systems.</p>
@@ -321,12 +357,65 @@
       </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section scroll-reveal reveal-up">
+      <h2 class="section-heading scroll-reveal reveal-up" style="text-align: center;">Validated by Rapidly Scaling Brands</h2>
+      <p class="body-text scroll-reveal reveal-up" style="max-width: 600px; margin: 15px auto 0 auto; text-align: center;">Hear how executive teams deploy TwinAI to automate call centers, support hubs, and quote engines.</p>
+      
+      <div class="testimonials-grid scroll-reveal reveal-up" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px;">
+        <div class="testimonial-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <p class="body-text" style="font-style: italic; font-size: 15px; line-height: 1.6; margin-bottom: 25px;">
+            "TwinAI cut our average email and chat resolution times from 8 hours to 0.2 seconds. Our customer satisfaction ratings jumped to 98% in the first week of deployment."
+          </p>
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #06b6d4, #3b82f6); display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff;">
+              SK
+            </div>
+            <div>
+              <div style="font-weight: 600; font-size: 14px;">Sarah Jenkins</div>
+              <div class="caption" style="font-size: 12px; text-transform: none;">VP Customer Experience, Hooli</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <p class="body-text" style="font-style: italic; font-size: 15px; line-height: 1.6; margin-bottom: 25px;">
+            "We integrated the voice-calling API with our calendar. The AI twin books appointments and qualifies leads automatically, saving our sales team 20+ hours every week."
+          </p>
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #8b5cf6, #06b6d4); display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff;">
+              MC
+            </div>
+            <div>
+              <div style="font-weight: 600; font-size: 14px;">Marcus Chen</div>
+              <div class="caption" style="font-size: 12px; text-transform: none;">Co-Founder & COO, Cyberdyne</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <p class="body-text" style="font-style: italic; font-size: 15px; line-height: 1.6; margin-bottom: 25px;">
+            "The multi-tenant RAG security model gave our compliance team peace of mind. We uploaded our entire internal security wiki, and the onboarding bot works flawlessly."
+          </p>
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #3b82f6, #8b5cf6); display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff;">
+              EG
+            </div>
+            <div>
+              <div style="font-weight: 600; font-size: 14px;">Elena Rostova</div>
+              <div class="caption" style="font-size: 12px; text-transform: none;">Elena Rostova, Stark Industries</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- FAQ Section -->
     <section id="faq" class="faq-section">
-      <h2 class="section-heading">Frequently Asked Questions</h2>
+      <h2 class="section-heading scroll-reveal reveal-up">Frequently Asked Questions</h2>
       <div class="faq-container">
         <!-- FAQ 1 -->
-        <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-item scroll-reveal reveal-up" onclick="toggleFaq(this)">
           <button class="faq-question">
             <span>Is my business data secure?</span>
             <i data-lucide="chevron-down" class="faq-chevron"></i>
@@ -336,7 +425,7 @@
           </div>
         </div>
         <!-- FAQ 2 -->
-        <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-item scroll-reveal reveal-up" onclick="toggleFaq(this)">
           <button class="faq-question">
             <span>Can the AI Twin answer live voice calls?</span>
             <i data-lucide="chevron-down" class="faq-chevron"></i>
@@ -346,7 +435,7 @@
           </div>
         </div>
         <!-- FAQ 3 -->
-        <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-item scroll-reveal reveal-up" onclick="toggleFaq(this)">
           <button class="faq-question">
             <span>Does it support multiple languages?</span>
             <i data-lucide="chevron-down" class="faq-chevron"></i>
@@ -356,7 +445,7 @@
           </div>
         </div>
         <!-- FAQ 4 -->
-        <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-item scroll-reveal reveal-up" onclick="toggleFaq(this)">
           <button class="faq-question">
             <span>Can it integrate with CRM and Calendar tools?</span>
             <i data-lucide="chevron-down" class="faq-chevron"></i>

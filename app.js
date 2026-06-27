@@ -143,6 +143,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize Landing chatbot
   updateDemoChatWindowScroll();
+
+  // Initialize Premium Animations
+  initPremiumAnimations();
 });
 
 // Refresh Lucide dynamic SVG tags
@@ -1452,3 +1455,230 @@ function updateOverviewChart(period) {
   charts.growth.data.datasets[0].data = datasetMaps[period].data;
   charts.growth.update();
 }
+
+// -------------------------------------------------------------
+// PREMIUM ENHANCED TYPOGRAPHY, TEXT AND SCROLL ANIMATIONS CONTROLLER
+// -------------------------------------------------------------
+function initPremiumAnimations() {
+  // 1. Scroll-Linked Progress Bar
+  const progressBar = document.getElementById('scroll-progress');
+  if (progressBar) {
+    window.addEventListener('scroll', () => {
+      const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollTotal > 0) {
+        const scrolled = (window.scrollY / scrollTotal) * 100;
+        progressBar.style.width = scrolled + '%';
+      }
+    });
+  }
+
+  // 2. Intersection Observer for Scroll Reveals
+  const revealElements = document.querySelectorAll('.scroll-reveal');
+  const observerOptions = {
+    root: null, // viewport
+    rootMargin: '0px 0px -40px 0px', // trigger shortly before entering
+    threshold: 0.08 // 8% visible is enough to start transition
+  };
+
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    // Group elements triggering together to stagger their fade-ins
+    const triggered = entries.filter(entry => entry.isIntersecting);
+    
+    const groups = {};
+    triggered.forEach(entry => {
+      const el = entry.target;
+      const parent = el.parentElement;
+      const groupKey = parent ? (parent.className || 'default') : 'default';
+      
+      if (!groups[groupKey]) {
+        groups[groupKey] = [];
+      }
+      groups[groupKey].push(el);
+      observer.unobserve(el);
+    });
+
+    Object.keys(groups).forEach(groupKey => {
+      groups[groupKey].forEach((el, index) => {
+        // Apply stagger delay to cards and lists
+        if (el.classList.contains('step-card') || el.classList.contains('feature-card') || el.classList.contains('pricing-card') || el.classList.contains('faq-item')) {
+          el.style.setProperty('--stagger-delay', (index * 0.12) + 's');
+        }
+        el.classList.add('visible');
+      });
+    });
+  }, observerOptions);
+
+  revealElements.forEach(el => {
+    revealObserver.observe(el);
+  });
+
+  // 3. Split-Text Typography Reveal for Headlines
+  const splitTextElements = document.querySelectorAll('.split-text');
+  splitTextElements.forEach(title => {
+    const text = title.textContent.trim();
+    title.textContent = ''; // Clear original text content
+    
+    // Split into words to prevent weird wraps, then split into characters
+    const words = text.split(' ');
+    words.forEach((word, wordIdx) => {
+      const wordSpan = document.createElement('span');
+      wordSpan.className = 'split-word';
+      
+      const chars = word.split('');
+      chars.forEach(char => {
+        const charSpan = document.createElement('span');
+        charSpan.className = 'split-char';
+        charSpan.textContent = char;
+        wordSpan.appendChild(charSpan);
+      });
+      
+      title.appendChild(wordSpan);
+      
+      if (wordIdx < words.length - 1) {
+        title.appendChild(document.createTextNode(' '));
+      }
+    });
+  });
+
+  // Trigger animation for split characters after header split completes
+  setTimeout(() => {
+    const chars = document.querySelectorAll('.split-char');
+    chars.forEach((char, index) => {
+      setTimeout(() => {
+        char.classList.add('active');
+      }, index * 25);
+    });
+  }, 150);
+
+  // 4. Mouse-Position Card Spotlight Glow & 3D Tilt Tracking
+  const spotlightCards = document.querySelectorAll('.step-card, .feature-card, .pricing-card, .benefit-card, .testimonial-card');
+  spotlightCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+
+      // 3D Tilt calculations
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -5;
+      const rotateY = ((x - centerX) / centerX) * 5;
+      
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
+    });
+  });
+
+  // 5. Number Counter Roll-Up Animations for Dashboard Metrics
+  initCounterRollups();
+
+  // 6. Interactive Live Typewriter Text Rotator
+  initTypewriterEffect();
+}
+
+// Roll-up animated counter for metric numbers
+function initCounterRollups() {
+  const metricElements = document.querySelectorAll('.metric-value');
+  const counterObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const rawText = el.innerText.replace(/[^0-9.]/g, '');
+        const targetNum = parseFloat(rawText);
+        if (!isNaN(targetNum) && targetNum > 0) {
+          animateSingleCounter(el, targetNum, el.innerText);
+        }
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  metricElements.forEach(el => counterObserver.observe(el));
+}
+
+function animateSingleCounter(element, targetNum, originalFormat) {
+  let start = 0;
+  const duration = 1500;
+  const startTime = performance.now();
+  const hasComma = originalFormat.includes(',');
+  const prefix = originalFormat.match(/^\D+/) ? originalFormat.match(/^\D+/)[0] : '';
+  const suffix = originalFormat.match(/\D+$/) ? originalFormat.match(/\D+$/)[0] : '';
+
+  function updateCounter(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    
+    // Ease-out expo curve for smooth deceleration
+    const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+    const currentVal = Math.floor(easeProgress * targetNum);
+    
+    let formatted = currentVal.toString();
+    if (hasComma) {
+      formatted = currentVal.toLocaleString();
+    }
+    
+    element.innerText = `${prefix}${formatted}${suffix}`;
+
+    if (progress < 1) {
+      requestAnimationFrame(updateCounter);
+    } else {
+      element.innerText = originalFormat; // Ensure exact final string match
+    }
+  }
+
+  requestAnimationFrame(updateCounter);
+}
+
+// Continuous Live Typewriter Text Rotator for Hero Subtitle
+function initTypewriterEffect() {
+  const typewriterEl = document.getElementById('hero-typewriter');
+  if (!typewriterEl) return;
+
+  const phrases = [
+    "answers customer queries 24/7",
+    "books instant appointments",
+    "generates qualified leads",
+    "prepares accurate proposals",
+    "scales call centers infinitely"
+  ];
+
+  let phraseIdx = 0;
+  let charIdx = phrases[0].length;
+  let isDeleting = false;
+  let typeSpeed = 80;
+
+  function typeLoop() {
+    const currentPhrase = phrases[phraseIdx];
+
+    if (isDeleting) {
+      typewriterEl.innerText = currentPhrase.substring(0, charIdx - 1);
+      charIdx--;
+      typeSpeed = 40; // Speed up erasing
+    } else {
+      typewriterEl.innerText = currentPhrase.substring(0, charIdx + 1);
+      charIdx++;
+      typeSpeed = 80; // Standard typing speed
+    }
+
+    if (!isDeleting && charIdx === currentPhrase.length) {
+      typeSpeed = 2200; // Pause at end of phrase
+      isDeleting = true;
+    } else if (isDeleting && charIdx === 0) {
+      isDeleting = false;
+      phraseIdx = (phraseIdx + 1) % phrases.length;
+      typeSpeed = 400; // Pause before typing next phrase
+    }
+
+    setTimeout(typeLoop, typeSpeed);
+  }
+
+  // Start loop after initial delay
+  setTimeout(typeLoop, 2000);
+}
+
