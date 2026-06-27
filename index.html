@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TwinAI - Your AI Employee That Never Sleeps</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       1. LANDING PAGE VIEW
+       ========================================== -->
+  <div id="landing-view" class="view-section active">
+    <!-- Header -->
+    <header class="landing-header">
+      <div class="logo-container" onclick="showView('landing')">
+        <div class="logo-icon"><i data-lucide="bot"></i></div>
+        <span>TwinAI</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#demo" class="nav-link">Interactive Demo</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn btn-secondary" onclick="showView('auth', 'login')">Login</button>
+        <button class="btn btn-primary" onclick="showView('auth', 'register')">Get Started</button>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <i data-lucide="shield"></i> Multi-Tenant Secure Enterprise RAG
+        </div>
+        <h1 class="hero-title">Your AI Employee That Never Sleeps</h1>
+        <p class="hero-subtitle">
+          Build your own AI Digital Twin that answers customers, books appointments, generates leads, prepares proposals, and speaks naturally—24/7.
+        </p>
+        <div class="hero-buttons">
+          <button class="btn btn-primary btn-large" onclick="showView('auth', 'register')">Get Started</button>
+          <button class="btn btn-secondary btn-large" onclick="openDemoChat()">Book Demo</button>
+          <button class="btn btn-secondary btn-large" onclick="simulateVoiceCall()"><i data-lucide="phone"></i> Watch Demo</button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="assistant-mockup">
+          <div class="mockup-header">
+            <div class="mockup-avatar">
+              <i data-lucide="bot"></i>
+              <div class="mockup-status-dot"></div>
+            </div>
+            <div class="mockup-title-wrap">
+              <div class="mockup-name">TwinAI Assistant</div>
+              <div class="mockup-status">Speaking naturally...</div>
+            </div>
+            <div class="voice-wave-container">
+              <div class="voice-wave-bar"></div>
+              <div class="voice-wave-bar"></div>
+              <div class="voice-wave-bar"></div>
+              <div class="voice-wave-bar"></div>
+              <div class="voice-wave-bar"></div>
+              <div class="voice-wave-bar"></div>
+            </div>
+          </div>
+          <div class="mockup-body" id="hero-mockup-body">
+            <div class="mockup-bubble ai">Hello! I'm your customized digital twin. I've finished reading your product documentation. How can I help your customers today?</div>
+            <div class="mockup-bubble user">Hey! Can you recommend a laptop under ₹60,000 and schedule a consultation?</div>
+            <div class="mockup-bubble ai">Sure! I suggest the TwinBook Pro (₹54,999) with 16GB RAM. I can book an appointment on your calendar for tomorrow at 10 AM. Sound good?</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trusted Companies Scrolling Logos -->
+    <section class="logos-section">
+      <div class="logos-container">
+        <div class="logos-track">
+          <div class="company-logo"><i data-lucide="brain"></i> Acme Corp</div>
+          <div class="company-logo"><i data-lucide="shield"></i> Cyberdyne</div>
+          <div class="company-logo"><i data-lucide="database"></i> Initech</div>
+          <div class="company-logo"><i data-lucide="analytics"></i> Hooli</div>
+          <div class="company-logo"><i data-lucide="users"></i> Stark Industries</div>
+        </div>
+        <div class="logos-track">
+          <div class="company-logo"><i data-lucide="brain"></i> Acme Corp</div>
+          <div class="company-logo"><i data-lucide="shield"></i> Cyberdyne</div>
+          <div class="company-logo"><i data-lucide="database"></i> Initech</div>
+          <div class="company-logo"><i data-lucide="analytics"></i> Hooli</div>
+          <div class="company-logo"><i data-lucide="users"></i> Stark Industries</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="how-it-works">
+      <h2 class="section-heading">Deploy Your Digital Twin in 4 Steps</h2>
+      <p class="body-text" style="max-width: 600px; margin: 15px auto 0 auto;">No complex code, prompt engineering, or server setups required.</p>
+      <div class="how-it-works-grid">
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-number">Step 1</div>
+          <div class="step-icon-box"><i data-lucide="upload"></i></div>
+          <h3 class="step-title">Upload Business Data</h3>
+          <p class="step-desc">Upload PDFs, CSVs, FAQs, web links, policies, and catalogs in seconds.</p>
+        </div>
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-number">Step 2</div>
+          <div class="step-icon-box"><i data-lucide="brain"></i></div>
+          <h3 class="step-title">TwinAI Learns</h3>
+          <p class="step-desc">Our RAG engine processes and structures a secure custom knowledge base.</p>
+        </div>
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-number">Step 3</div>
+          <div class="step-icon-box"><i data-lucide="bot"></i></div>
+          <h3 class="step-title">Embed Chat Widget</h3>
+          <p class="step-desc">Copy one line of embed script to place the chatbot on your site.</p>
+          <div class="step-code">&lt;script src="https://twinai.ai/widget.js"&gt;&lt;/script&gt;</div>
+        </div>
+        <!-- Step 4 -->
+        <div class="step-card">
+          <div class="step-number">Step 4</div>
+          <div class="step-icon-box"><i data-lucide="phone"></i></div>
+          <h3 class="step-title">Customers Connect</h3>
+          <p class="step-desc">Your twin chats, places voice calls, gathers leads, and syncs calendars.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+      <h2 class="section-heading" style="text-align: center;">Loaded With Enterprise AI Abilities</h2>
+      <div class="features-grid">
+        <!-- Chat AI -->
+        <div class="feature-card">
+          <div class="feature-header">
+            <div class="feature-icon-box"><i data-lucide="message-circle"></i></div>
+            <h3 class="feature-title">AI Chat</h3>
+          </div>
+          <p class="feature-desc">Engage customers with fluent, human-like chat support.</p>
+          <ul class="feature-bullets">
+            <li class="feature-bullet"><i data-lucide="shield"></i> 100+ languages supported</li>
+            <li class="feature-bullet"><i data-lucide="shield"></i> Context & memory recall</li>
+            <li class="feature-bullet"><i data-lucide="shield"></i> Instant reply resolution</li>
+          </ul>
+        </div>
+        <!-- Voice AI -->
+        <div class="feature-card">
+          <div class="feature-header">
+            <div class="feature-icon-box"><i data-lucide="phone"></i></div>
+            <h3 class="feature-title">Voice AI</h3>
+          </div>
+          <p class="feature-desc">Interactive browser calling and natural text-to-speech voice twin.</p>
+          <ul class="feature-bullets">
+            <li class="feature-bullet"><i data-lucide="shield"></i> Ultra low latency response</li>
+            <li class="feature-bullet"><i data-lucide="shield"></i> Realistic voice engines</li>
+            <li class="feature-bullet"><i data-lucide="shield"></i> In-browser calling</li>
+          </ul>
+        </div>
+        <!-- Bookings -->
+        <div class="feature-card">
+          <div class="feature-header">
+            <div class="feature-icon-box"><i data-lucide="calendar"></i></div>
+            <h3 class="feature-title">Appointment Booking</h3>
+          </div>
+          <p class="feature-desc">Enable bookings without third-party redirects.</p>
+          <ul class="feature-bullets">
+            <li class="feature-bullet"><i data-lucide="shield"></i> Google Calendar & Outlook Sync</li>
+            <li class="feature-bullet"><i data-lucide="shield"></i> Zoom & Teams integration</li>
+            <li class="feature-bullet"><i data-lucide="shield"></i> Realtime slot checks</li>
+          </ul>
+        </div>
+        <!-- Lead Generation -->
+        <div class="feature-card">
+          <div class="feature-header">
+            <div class="feature-icon-box"><i data-lucide="users"></i></div>
+            <h3 class="feature-title">Lead Generation</h3>
+          </div>
+          <p class="feature-desc">Collect structural contact forms mid-conversation.</p>
+          <ul class="feature-bullets">
+            <li class="feature-bullet"><i data-lucide="shield"></i> Smart fields: Name/Email/Budget</li>
+            <li class="feature-bullet"><i data-lucide="shield"></i> CRM lead pushing</li>
+            <li class="feature-bullet"><i data-lucide="shield"></i> Custom prioritization</li>
+          </ul>
+        </div>
+        <!-- Product Recommendation -->
+        <div class="feature-card">
+          <div class="feature-header">
+            <div class="feature-icon-box"><i data-lucide="brain"></i></div>
+            <h3 class="feature-title">Product Recommendations</h3>
+          </div>
+          <p class="feature-desc">Recommend matching items based on user criteria and budget.</p>
+          <ul class="feature-bullets">
+            <li class="feature-bullet"><i data-lucide="shield"></i> Reads catalogs dynamically</li>
+            <li class="feature-bullet"><i data-lucide="shield"></i> Personalization matching</li>
+            <li class="feature-bullet"><i data-lucide="shield"></i> Interactive checkout paths</li>
+          </ul>
+        </div>
+        <!-- Quote Generator -->
+        <div class="feature-card">
+          <div class="feature-header">
+            <div class="feature-icon-box"><i data-lucide="database"></i></div>
+            <h3 class="feature-title">Instant Quotation Engine</h3>
+          </div>
+          <p class="feature-desc">Prepare pricing estimates, contracts, and proposals immediately.</p>
+          <ul class="feature-bullets">
+            <li class="feature-bullet"><i data-lucide="shield"></i> Automated price calculators</li>
+            <li class="feature-bullet"><i data-lucide="shield"></i> Custom quotation PDFs</li>
+            <li class="feature-bullet"><i data-lucide="shield"></i> Flexible margin handling</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Chatbot Playground -->
+    <section id="demo" class="demo-section">
+      <h2 class="section-heading">Test Your AI Digital Twin Live</h2>
+      <p class="body-text" style="max-width: 600px; margin: 15px auto 0 auto;">Select a prompt or type below to see how fast and smart the Twin answers.</p>
+      <div class="demo-box">
+        <div class="demo-sidebar">
+          <div class="demo-sidebar-top">
+            <span class="caption">Choose a Customer Query</span>
+            <button class="demo-prompt-btn" onclick="sendDemoPreset('I need a laptop under ₹60,000.')">
+              💻 "I need a laptop under ₹60,000."
+            </button>
+            <button class="demo-prompt-btn" onclick="sendDemoPreset('Can I schedule a call for tomorrow?')">
+              📅 "Can I schedule a call for tomorrow?"
+            </button>
+            <button class="demo-prompt-btn" onclick="sendDemoPreset('Is my data secure in your system?')">
+              🔒 "Is my data secure in your system?"
+            </button>
+          </div>
+          <div class="small-text">
+            <i data-lucide="shield" style="vertical-align: middle;"></i> Verified 0.2s response speed.
+          </div>
+        </div>
+        <div class="demo-chat-area">
+          <div class="demo-chat-header">
+            <div class="mockup-avatar" style="width: 32px; height: 32px;"><i data-lucide="bot"></i></div>
+            <div>
+              <div style="font-weight:600; font-size:14px;">TwinAI Agent</div>
+              <div style="font-size:11px; color:var(--success);">Active Sandbox</div>
+            </div>
+          </div>
+          <div class="demo-chat-messages" id="demo-messages-log">
+            <div class="mockup-bubble ai">Welcome! I am trained on TwinAI's policies. Ask me anything, or try selecting a query on the left.</div>
+          </div>
+          <div class="demo-chat-input-bar">
+            <input type="text" class="demo-input" id="demo-chat-input" placeholder="Type a message..." onkeydown="handleDemoChatKey(event)">
+            <button class="btn btn-primary" onclick="submitDemoChat()"><i data-lucide="message-circle"></i> Send</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section">
+      <h2 class="section-heading">Simple, Transparent Pricing</h2>
+      <div class="pricing-tabs">
+        <button class="pricing-tab active" id="btn-billing-monthly" onclick="toggleBillingPeriod('monthly')">Monthly Billing</button>
+        <button class="pricing-tab" id="btn-billing-annual" onclick="toggleBillingPeriod('annual')">Annual Billing (20% Off)</button>
+      </div>
+      <div class="pricing-grid">
+        <!-- Starter -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Starter</h3>
+            <p class="small-text">For small businesses exploring AI.</p>
+            <div class="pricing-price"><span class="price-val">$29</span><span class="price-period">/mo</span></div>
+          </div>
+          <ul class="pricing-list">
+            <li class="pricing-item"><i data-lucide="shield"></i> 1 AI Digital Twin</li>
+            <li class="pricing-item"><i data-lucide="shield"></i> 1,000 Chats/month</li>
+            <li class="pricing-item"><i data-lucide="shield"></i> 100 Voice Minutes/month</li>
+            <li class="pricing-item"><i data-lucide="shield"></i> 500MB Data Storage</li>
+            <li class="pricing-item"><i data-lucide="shield"></i> Standard Widget Customizer</li>
+          </ul>
+          <button class="btn btn-secondary" onclick="showView('auth', 'register')">Start Starter Trial</button>
+        </div>
+        <!-- Professional -->
+        <div class="pricing-card premium-tier">
+          <div class="badge-featured">RECOMMENDED</div>
+          <div class="pricing-header">
+            <h3>Professional</h3>
+            <p class="small-text">For scaling brands seeking automation.</p>
+            <div class="pricing-price"><span class="price-val">$99</span><span class="price-period">/mo</span></div>
+          </div>
+          <ul class="pricing-list">
+            <li class="pricing-item"><i data-lucide="shield"></i> 3 AI Digital Twins</li>
+            <li class="pricing-item"><i data-lucide="shield"></i> 10,000 Chats/month</li>
+            <li class="pricing-item"><i data-lucide="shield"></i> 1,000 Voice Minutes/month</li>
+            <li class="pricing-item"><i data-lucide="shield"></i> 5GB Data Storage</li>
+            <li class="pricing-item"><i data-lucide="shield"></i> Advanced Widget Branding</li>
+            <li class="pricing-item"><i data-lucide="shield"></i> Calendar and CRM Sync</li>
+          </ul>
+          <button class="btn btn-primary" onclick="showView('auth', 'register')">Start Professional Trial</button>
+        </div>
+        <!-- Enterprise -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Enterprise</h3>
+            <p class="small-text">For large-scale tailored systems.</p>
+            <div class="pricing-price"><span class="price-val">$399</span><span class="price-period">/mo</span></div>
+          </div>
+          <ul class="pricing-list">
+            <li class="pricing-item"><i data-lucide="shield"></i> Unlimited Twins</li>
+            <li class="pricing-item"><i data-lucide="shield"></i> Unlimited Chat Logs</li>
+            <li class="pricing-item"><i data-lucide="shield"></i> Dedicated Voice Channels</li>
+            <li class="pricing-item"><i data-lucide="shield"></i> 100GB Storage</li>
+            <li class="pricing-item"><i data-lucide="shield"></i> API Keys & Custom Webhooks</li>
+            <li class="pricing-item"><i data-lucide="shield"></i> SLA Support & Custom LLMs</li>
+          </ul>
+          <button class="btn btn-secondary" onclick="showView('auth', 'register')">Contact Enterprise Sales</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+      <h2 class="section-heading">Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <!-- FAQ 1 -->
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <button class="faq-question">
+            <span>Is my business data secure?</span>
+            <i data-lucide="chevron-down" class="faq-chevron"></i>
+          </button>
+          <div class="faq-answer">
+            Yes, your data is 100% isolated. We secure your database using multi-tenant enterprise guidelines and state-of-the-art encryption algorithms (AES-256) at rest. Your database is never used to train global open models.
+          </div>
+        </div>
+        <!-- FAQ 2 -->
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <button class="faq-question">
+            <span>Can the AI Twin answer live voice calls?</span>
+            <i data-lucide="chevron-down" class="faq-chevron"></i>
+          </button>
+          <div class="faq-answer">
+            Absolutely! Our digital twin can answer voice calls natively in the browser widget, or integrate directly with standard telephony platforms (Twilio, VoIP servers) using Azure, Google, and ElevenLabs voice lines.
+          </div>
+        </div>
+        <!-- FAQ 3 -->
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <button class="faq-question">
+            <span>Does it support multiple languages?</span>
+            <i data-lucide="chevron-down" class="faq-chevron"></i>
+          </button>
+          <div class="faq-answer">
+            Yes. The AI Twin supports auto-detection and conversation in over 100 languages. It instantly adapts spelling, accents, and tones based on your customer's query style.
+          </div>
+        </div>
+        <!-- FAQ 4 -->
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <button class="faq-question">
+            <span>Can it integrate with CRM and Calendar tools?</span>
+            <i data-lucide="chevron-down" class="faq-chevron"></i>
+          </button>
+          <div class="faq-answer">
+            Yes, we support direct API connections and webhook links. TwinAI natively integrates with Salesforce, HubSpot, Google Calendar, Microsoft Outlook, and Zoom.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="landing-footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-container">
+            <div class="logo-icon"><i data-lucide="bot"></i></div>
+            <span>TwinAI</span>
+          </div>
+          <p class="small-text">Deploying AI digital employees to empower global brands 24 hours a day, 7 days a week.</p>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#features" class="footer-link">Features</a></li>
+            <li><a href="#pricing" class="footer-link">Pricing</a></li>
+            <li><a href="#" class="footer-link">Documentation</a></li>
+            <li><a href="#" class="footer-link">API Reference</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+            <li><a href="#" class="footer-link">Terms of Service</a></li>
+            <li><a href="#" class="footer-link">Security Policies</a></li>
+            <li><a href="#" class="footer-link">Compliance</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Social Media</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">LinkedIn</a></li>
+            <li><a href="#" class="footer-link">Twitter</a></li>
+            <li><a href="#" class="footer-link">GitHub</a></li>
+            <li><a href="#" class="footer-link">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="small-text" style="text-align: center; margin-top: 50px; border-top: 1px solid var(--border); padding-top: 25px;">
+        &copy; 2026 TwinAI Technologies, Inc. All rights reserved.
+      </div>
+    </footer>
+  </div>
+
+
+  <!-- ==========================================
+       2. AUTHENTICATION MODULE
+       ========================================== -->
+  <div id="auth-view" class="view-section">
+    <div class="auth-wrapper">
+      <!-- Login Card -->
+      <div class="auth-card" id="auth-card-login">
+        <div class="auth-header">
+          <div class="logo-container" style="justify-content: center; margin-bottom: 10px;">
+            <div class="logo-icon"><i data-lucide="bot"></i></div>
+            <span>TwinAI</span>
+          </div>
+          <h2>Welcome back</h2>
+          <p class="small-text">Log in to manage your digital employee twins.</p>
+        </div>
+        <div class="auth-socials">
+          <button class="auth-social-btn" onclick="simulateLogin(event)">
+            <i data-lucide="chrome" style="color: #ea4335;"></i> Google
+          </button>
+          <button class="auth-social-btn" onclick="simulateLogin(event)">
+            <i data-lucide="shield" style="color: #0078d4;"></i> Microsoft
+          </button>
+        </div>
+        <div class="auth-divider">or continue with email</div>
+        <form onsubmit="simulateLogin(event)">
+          <div class="form-group">
+            <label class="form-label">Email address</label>
+            <div class="form-input-wrap">
+              <i data-lucide="users"></i>
+              <input type="email" class="form-input" placeholder="name@company.com" required value="demo@twinai.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <div class="form-input-wrap">
+              <i data-lucide="shield"></i>
+              <input type="password" class="form-input" placeholder="••••••••" required value="password123">
+            </div>
+          </div>
+          <div class="form-checkbox-row">
+            <label class="checkbox-wrap">
+              <input type="checkbox" class="checkbox-input" checked>
+              <span>Remember me</span>
+            </label>
+            <a href="#" style="color: var(--primary); font-weight: 500;" onclick="toggleAuthForm('forgot')">Forgot Password?</a>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 15px; padding: 12px;">Log In</button>
+        </form>
+        <p class="auth-footer">Don't have an account? <a href="#" onclick="toggleAuthForm('register')">Register here</a></p>
+      </div>
+
+      <!-- Register Card -->
+      <div class="auth-card" id="auth-card-register" style="display:none;">
+        <div class="auth-header">
+          <div class="logo-container" style="justify-content: center; margin-bottom: 10px;">
+            <div class="logo-icon"><i data-lucide="bot"></i></div>
+            <span>TwinAI</span>
+          </div>
+          <h2>Create Business Account</h2>
+          <p class="small-text">Deploy custom twins within 5 minutes.</p>
+        </div>
+        <form onsubmit="handleRegister(event)">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div class="form-group">
+              <label class="form-label">Business Name</label>
+              <div class="form-input-wrap">
+                <i data-lucide="bot"></i>
+                <input type="text" class="form-input" placeholder="Acme Corp" required id="reg-biz-name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Business Email</label>
+              <div class="form-input-wrap">
+                <i data-lucide="users"></i>
+                <input type="email" class="form-input" placeholder="ceo@acme.com" required id="reg-biz-email">
+              </div>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div class="form-group">
+              <label class="form-label">Phone Number</label>
+              <div class="form-input-wrap">
+                <i data-lucide="phone"></i>
+                <input type="tel" class="form-input" placeholder="+91 99999 99999" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Password</label>
+              <div class="form-input-wrap">
+                <i data-lucide="shield"></i>
+                <input type="password" class="form-input" placeholder="••••••••" required>
+              </div>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 10px;">
+            <div class="form-group">
+              <label class="form-label">Industry</label>
+              <select class="form-input" style="padding-left: 15px;">
+                <option>E-commerce / Retail</option>
+                <option>Technology / SaaS</option>
+                <option>Healthcare / Medical</option>
+                <option>Legal Service</option>
+                <option>Education</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Website</label>
+              <input type="text" class="form-input" style="padding-left:15px;" placeholder="acme.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Employees</label>
+              <select class="form-input" style="padding-left:10px;">
+                <option>1 - 10</option>
+                <option>11 - 50</option>
+                <option>51 - 200</option>
+                <option>201+</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px; padding: 12px;">Create Account</button>
+        </form>
+        <p class="auth-footer">Already registered? <a href="#" onclick="toggleAuthForm('login')">Log in here</a></p>
+      </div>
+
+      <!-- Forgot Password Card -->
+      <div class="auth-card" id="auth-card-forgot" style="display:none;">
+        <div class="auth-header">
+          <div class="logo-container" style="justify-content: center; margin-bottom: 10px;">
+            <div class="logo-icon"><i data-lucide="bot"></i></div>
+            <span>TwinAI</span>
+          </div>
+          <h2>Reset password</h2>
+          <p class="small-text">Enter your email and we'll send you recovery links.</p>
+        </div>
+        <form onsubmit="handleForgot(event)">
+          <div class="form-group">
+            <label class="form-label">Business Email</label>
+            <div class="form-input-wrap">
+              <i data-lucide="users"></i>
+              <input type="email" class="form-input" placeholder="ceo@acme.com" required>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 15px; padding: 12px;">Send Verification Link</button>
+        </form>
+        <p class="auth-footer"><a href="#" onclick="toggleAuthForm('login')">Back to Login</a></p>
+      </div>
+
+      <!-- Verification Card -->
+      <div class="auth-card" id="auth-card-verify" style="display:none;">
+        <div class="auth-header">
+          <div class="logo-icon" style="margin: 0 auto 10px auto;"><i data-lucide="shield"></i></div>
+          <h2>Verify business email</h2>
+          <p class="small-text" id="verify-sub-text">We sent a 6-digit passcode code to your registered email.</p>
+        </div>
+        <form onsubmit="handleVerify(event)">
+          <div style="display: flex; gap: 10px; justify-content: center; margin: 15px 0;">
+            <input type="text" maxlength="1" class="form-input" style="width:50px; text-align:center; padding: 10px 0;" value="7" required>
+            <input type="text" maxlength="1" class="form-input" style="width:50px; text-align:center; padding: 10px 0;" value="1" required>
+            <input type="text" maxlength="1" class="form-input" style="width:50px; text-align:center; padding: 10px 0;" value="9" required>
+            <input type="text" maxlength="1" class="form-input" style="width:50px; text-align:center; padding: 10px 0;" value="4" required>
+            <input type="text" maxlength="1" class="form-input" style="width:50px; text-align:center; padding: 10px 0;" value="6" required>
+            <input type="text" maxlength="1" class="form-input" style="width:50px; text-align:center; padding: 10px 0;" value="2" required>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px;">Confirm Codes</button>
+        </form>
+        <p class="auth-footer">Didn't receive codes? <a href="#" onclick="alert('Verification code resent!')">Resend code</a></p>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ==========================================
+       3. DASHBOARD PANEL
+       ========================================== -->
+  <div id="dashboard-view" class="view-section">
+    <div class="dashboard-layout">
+      <!-- Sidebar -->
+      <aside class="dashboard-sidebar" id="app-sidebar">
+        <div class="sidebar-header">
+          <div class="logo-container" onclick="showView('landing')">
+            <div class="logo-icon"><i data-lucide="bot"></i></div>
+            <span>TwinAI</span>
+          </div>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="#" class="sidebar-nav-item active" onclick="switchDashboardTab(event, 'dashboard-home')">
+            <i data-lucide="home"></i> Dashboard
+          </a>
+          <a href="#" class="sidebar-nav-item" onclick="switchDashboardTab(event, 'knowledge-base')">
+            <i data-lucide="database"></i> Knowledge Base
+          </a>
+          <a href="#" class="sidebar-nav-item" onclick="switchDashboardTab(event, 'ai-twin-config')">
+            <i data-lucide="bot"></i> AI Twin Config
+          </a>
+          <a href="#" class="sidebar-nav-item" onclick="switchDashboardTab(event, 'widget-customizer')">
+            <i data-lucide="message-circle"></i> Widget Customizer
+          </a>
+          <a href="#" class="sidebar-nav-item" onclick="switchDashboardTab(event, 'conversations')">
+            <i data-lucide="phone"></i> Conversations
+          </a>
+          <a href="#" class="sidebar-nav-item" onclick="switchDashboardTab(event, 'appointment-manager')">
+            <i data-lucide="calendar"></i> Appointments
+          </a>
+          <a href="#" class="sidebar-nav-item" onclick="switchDashboardTab(event, 'leads')">
+            <i data-lucide="users"></i> Leads Database
+          </a>
+          <a href="#" class="sidebar-nav-item" onclick="switchDashboardTab(event, 'analytics')">
+            <i data-lucide="analytics"></i> Analytics
+          </a>
+          <a href="#" class="sidebar-nav-item" onclick="switchDashboardTab(event, 'billing')">
+            <i data-lucide="credit-card"></i> Billing & Plans
+          </a>
+          <a href="#" class="sidebar-nav-item" onclick="switchDashboardTab(event, 'settings')">
+            <i data-lucide="settings"></i> Settings
+          </a>
+          <a href="#" class="sidebar-nav-item" onclick="switchDashboardTab(event, 'admin-dashboard')">
+            <i data-lucide="shield"></i> Super Admin Panel
+          </a>
+        </nav>
+        <div class="sidebar-footer">
+          <div class="sidebar-user-avatar" id="avatar-display">JD</div>
+          <div class="sidebar-user-info">
+            <div class="sidebar-user-name" id="user-name-display">John Doe</div>
+            <div class="sidebar-user-email" id="user-email-display">john@acme.com</div>
+          </div>
+          <button class="btn-icon-only" style="border:none;" onclick="logout()" title="Logout"><i data-lucide="logout"></i></button>
+        </div>
+      </aside>
+
+      <!-- Main Panel area -->
+      <main class="dashboard-main">
+        <!-- Header navbar -->
+        <header class="dashboard-navbar">
+          <div class="navbar-left">
+            <button class="btn btn-secondary sidebar-toggle-btn" onclick="toggleMobileSidebar()" style="padding:8px;"><i data-lucide="home"></i></button>
+            <div class="search-bar-wrap">
+              <i data-lucide="search"></i>
+              <input type="text" class="navbar-search" placeholder="Search resources, templates, twins...">
+            </div>
+          </div>
+          <div class="navbar-right">
+            <!-- Notifications panel -->
+            <div class="notifications-dropdown-container">
+              <button class="btn-icon-only" onclick="toggleNotificationsPanel(event)">
+                <i data-lucide="bell"></i>
+                <div class="notification-badge"></div>
+              </button>
+              <!-- Alert container inside app.js -->
+            </div>
+            <div class="sidebar-user-avatar" onclick="switchDashboardTab(null, 'settings')" style="cursor:pointer;" id="top-nav-avatar">JD</div>
+          </div>
+        </header>
+
+        <!-- Sub-panel Container -->
+        <div class="dashboard-content" id="dashboard-tab-content-container">
+
+          <!-- ==========================================
+               SUB-VIEW: OVERVIEW (HOME)
+               ========================================== -->
+          <div id="dashboard-home" class="dashboard-panel-view active">
+            <div class="panel-header-row">
+              <div>
+                <h2>Welcome, <span id="welcome-username">John</span> 👋</h2>
+                <p class="small-text">Here is your digital employee performance for today.</p>
+              </div>
+              <button class="btn btn-primary" onclick="switchDashboardTab(null, 'ai-twin-config')">Configure AI Twin</button>
+            </div>
+            
+            <!-- Cards Row -->
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <div class="metric-header">
+                  <span>Today's Conversations</span>
+                  <div class="metric-icon-box"><i data-lucide="message-circle" style="color:var(--primary)"></i></div>
+                </div>
+                <div class="metric-value" id="stat-conversations">1,482</div>
+                <div class="metric-footer">
+                  <span class="trend-badge up"><i data-lucide="shield"></i> +14.2%</span>
+                  <span class="small-text">vs yesterday</span>
+                </div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-header">
+                  <span>Active Appointments</span>
+                  <div class="metric-icon-box"><i data-lucide="calendar" style="color:var(--secondary)"></i></div>
+                </div>
+                <div class="metric-value" id="stat-appointments">24</div>
+                <div class="metric-footer">
+                  <span class="trend-badge up"><i data-lucide="shield"></i> +8.1%</span>
+                  <span class="small-text">vs last week</span>
+                </div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-header">
+                  <span>Revenue Generated</span>
+                  <div class="metric-icon-box"><i data-lucide="credit-card" style="color:var(--success)"></i></div>
+                </div>
+                <div class="metric-value" id="stat-revenue">₹1,84,500</div>
+                <div class="metric-footer">
+                  <span class="trend-badge up"><i data-lucide="shield"></i> +18.4%</span>
+                  <span class="small-text">vs last month</span>
+                </div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-header">
+                  <span>Total CRM Leads</span>
+                  <div class="metric-icon-box"><i data-lucide="users" style="color:var(--accent-cyan)"></i></div>
+                </div>
+                <div class="metric-value" id="stat-leads">418</div>
+                <div class="metric-footer">
+                  <span class="trend-badge up"><i data-lucide="shield"></i> +22.8%</span>
+                  <span class="small-text">vs last month</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dashboard Charts -->
+            <div class="charts-row">
+              <div class="chart-card">
+                <div class="chart-header">
+                  <h3 class="card-title">Conversation Growth</h3>
+                  <select class="form-input" style="padding: 4px 10px; width: 140px;" onchange="updateOverviewChart(this.value)">
+                    <option value="today">Today</option>
+                    <option value="week" selected>This Week</option>
+                    <option value="month">This Month</option>
+                  </select>
+                </div>
+                <div class="chart-container-inner">
+                  <canvas id="chart-conversation-growth"></canvas>
+                </div>
+              </div>
+              <div class="chart-card">
+                <div class="chart-header">
+                  <h3 class="card-title">Lead Conversion Funnel</h3>
+                </div>
+                <div class="chart-container-inner">
+                  <canvas id="chart-lead-funnel"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Extra metrics card row -->
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <div class="metric-header">
+                  <span>Customer Satisfaction</span>
+                  <div class="metric-icon-box"><i data-lucide="shield" style="color: var(--success)"></i></div>
+                </div>
+                <div class="metric-value">98.4%</div>
+                <div class="metric-footer">
+                  <span class="trend-badge up">+0.4%</span>
+                  <span class="small-text">rating from users</span>
+                </div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-header">
+                  <span>Average Response Time</span>
+                  <div class="metric-icon-box"><i data-lucide="bot" style="color: var(--accent-cyan)"></i></div>
+                </div>
+                <div class="metric-value">0.24s</div>
+                <div class="metric-footer">
+                  <span class="trend-badge up">-0.08s</span>
+                  <span class="small-text">average latency</span>
+                </div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-header">
+                  <span>Monthly Active Customers</span>
+                  <div class="metric-icon-box"><i data-lucide="users" style="color: var(--primary)"></i></div>
+                </div>
+                <div class="metric-value">42,840</div>
+                <div class="metric-footer">
+                  <span class="trend-badge up">+12.5%</span>
+                  <span class="small-text">vs active peak</span>
+                </div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-header">
+                  <span>AI Conversation Success Rate</span>
+                  <div class="metric-icon-box"><i data-lucide="brain" style="color: var(--secondary)"></i></div>
+                </div>
+                <div class="metric-value">94.8%</div>
+                <div class="metric-footer">
+                  <span class="trend-badge up">+1.6%</span>
+                  <span class="small-text">without human takeover</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- ==========================================
+               SUB-VIEW: KNOWLEDGE BASE
+               ========================================== -->
+          <div id="knowledge-base" class="dashboard-panel-view">
+            <div class="panel-header-row">
+              <div>
+                <h2>Knowledge Base</h2>
+                <p class="small-text">Supply your AI twin with business documents, urls, and guides.</p>
+              </div>
+            </div>
+
+            <!-- Upload layouts -->
+            <div class="knowledge-upload-section">
+              <div class="upload-card">
+                <h3 class="card-title" style="margin-bottom:15px;">Add New Data Source</h3>
+                
+                <div style="display: flex; gap: 10px; margin-bottom: 20px; border-bottom:1px solid var(--border); padding-bottom:15px;">
+                  <button class="pricing-tab active" id="btn-upload-file-tab" onclick="toggleUploadType('file')">Upload Document</button>
+                  <button class="pricing-tab" id="btn-upload-url-tab" onclick="toggleUploadType('url')">Crawl Website URL</button>
+                </div>
+
+                <!-- Document Form -->
+                <div id="upload-form-file">
+                  <div class="upload-dropzone" onclick="triggerFileSelector()">
+                    <i data-lucide="upload" style="width:40px; height:40px; color:var(--primary);"></i>
+                    <p class="small-text">Drag & drop files or click to browse</p>
+                    <span class="caption">Supports PDF, Word, Excel, CSV, TXT (Max 50MB)</span>
+                    <input type="file" id="real-file-input" style="display:none;" onchange="handleFileSelected(event)">
+                  </div>
+                </div>
+
+                <!-- Crawl URL Form -->
+                <div id="upload-form-url" style="display:none;">
+                  <div class="form-group">
+                    <label class="form-label">Website URL</label>
+                    <input type="url" class="form-input" style="padding-left:15px;" placeholder="https://acme.com/help" id="crawl-url-input">
+                  </div>
+                  <div class="form-checkbox-row" style="margin-bottom:15px;">
+                    <label class="checkbox-wrap">
+                      <input type="checkbox" class="checkbox-input" checked id="crawl-subpages">
+                      <span>Crawl sub-pages links recursively</span>
+                    </label>
+                  </div>
+                  <button class="btn btn-primary" style="width:100%;" onclick="startUrlCrawl()">Crawl & Train URL</button>
+                </div>
+              </div>
+
+              <!-- Training status indicator -->
+              <div class="training-progress-card">
+                <h3 class="card-title" style="margin-bottom: 8px;">Model Training Status</h3>
+                <p class="small-text" style="margin-bottom: 20px;">TwinAI RAG Indexing synchronization rate.</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-weight:600;">
+                  <span>Indexing progress</span>
+                  <span id="training-progress-pct">100%</span>
+                </div>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar-fill" id="training-progress-bar" style="width: 100%;"></div>
+                </div>
+                <div style="display: flex; align-items:center; gap:10px; margin-top:20px; font-size:13px; color: var(--text-secondary);">
+                  <i data-lucide="shield" style="color:var(--success)"></i>
+                  <span>All synced assets are encrypted dynamically. Next automated sync scheduled in 6 hours.</span>
+                </div>
+                <button class="btn btn-secondary" style="margin-top:25px; width:100%;" onclick="triggerManualRetrain()"><i data-lucide="bot"></i> Retrain Vector Index</button>
+              </div>
+            </div>
+
+            <!-- Table of uploaded elements -->
+            <div class="table-card">
+              <div class="panel-header-row" style="padding: 20px 24px; margin-bottom: 0; border-bottom: 1px solid var(--border);">
+                <h3>Indexed Documents</h3>
+                <span class="caption" id="doc-count-display">4 Documents Indexed</span>
+              </div>
+              <div class="table-wrapper">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>File Name</th>
+                      <th>Type</th>
+                      <th>Upload Date</th>
+                      <th>Status</th>
+                      <th>Size</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="knowledge-table-body">
+                    <!-- Loaded dynamically via app.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- ==========================================
+               SUB-VIEW: AI TWIN CONFIGURATION
+               ========================================== -->
+          <div id="ai-twin-config" class="dashboard-panel-view">
+            <div class="panel-header-row">
+              <div>
+                <h2>AI Twin Configuration</h2>
+                <p class="small-text">Customize the character traits, speech tones, and guidelines for your AI assistant.</p>
+              </div>
+            </div>
+
+            <div class="config-layout">
+              <!-- Configuration Form -->
+              <div class="config-form-section">
+                <!-- Character properties -->
+                <div class="config-card">
+                  <h3 class="card-title">General Identity</h3>
+                  <div class="avatar-upload-wrap">
+                    <div class="avatar-preview-box" id="config-avatar-preview">🤖</div>
+                    <div>
+                      <button class="btn btn-secondary" style="padding:6px 12px;" onclick="changeMockAvatar()">Change Emoji Avatar</button>
+                      <p class="caption" style="margin-top:5px;">Click to cycle avatars or logos</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Twin AI Display Name</label>
+                    <input type="text" class="form-input" style="padding-left:15px;" id="config-twin-name" value="TwinAI Agent" oninput="syncCustomizerPreview()">
+                  </div>
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                    <div class="form-group">
+                      <label class="form-label">Primary Tone</label>
+                      <select class="form-input" style="padding-left:15px;" id="config-twin-tone">
+                        <option value="Professional" selected>Professional / Enterprise</option>
+                        <option value="Friendly">Friendly / Casual</option>
+                        <option value="Luxury">Luxury / Sophisticated</option>
+                        <option value="Medical">Medical Care / Compassionate</option>
+                        <option value="Legal">Legal Advisor / Concise</option>
+                        <option value="Sales">Sales Rep / Persuasive</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Primary Language</label>
+                      <select class="form-input" style="padding-left:15px;" id="config-twin-lang">
+                        <option value="en" selected>English (US / UK)</option>
+                        <option value="hi">Hindi (India)</option>
+                        <option value="es">Spanish (ES / MX)</option>
+                        <option value="fr">French (France)</option>
+                        <option value="de">German (Germany)</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Custom responses rules -->
+                <div class="config-card">
+                  <h3 class="card-title">Prompts & Guidelines</h3>
+                  <div class="form-group">
+                    <label class="form-label">Greeting Welcome Message</label>
+                    <textarea class="form-input" style="padding-left:15px; height: 80px;" id="config-welcome-msg" oninput="syncCustomizerPreview()">Welcome! I am trained on TwinAI's policies. Ask me anything, or try selecting a query on the left.</textarea>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Fallback Message (No Answer Available)</label>
+                    <textarea class="form-input" style="padding-left:15px; height: 80px;" id="config-fallback-msg">I apologize, but I couldn't locate specific information about that query in our guidelines. Let me transfer you to a human assistant shortly.</textarea>
+                  </div>
+
+                  <!-- Range Sliders -->
+                  <div class="slider-group">
+                    <div class="slider-header">
+                      <label class="form-label">Twin AI Creativity (Temperature)</label>
+                      <span id="label-creativity">0.3</span>
+                    </div>
+                    <input type="range" class="slider-input" min="0.0" max="1.0" step="0.1" value="0.3" id="config-slider-creativity" oninput="document.getElementById('label-creativity').innerText=this.value">
+                    <p class="caption">Lower values guarantee precise, database-locked answers. Higher values make the agent sound organic.</p>
+                  </div>
+
+                  <!-- Toggles -->
+                  <div class="toggle-row">
+                    <div class="switch-label-wrap">
+                      <span class="form-label">Context Memory Retention</span>
+                      <span class="caption">Remembers previous inputs across sessions</span>
+                    </div>
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider-round"></span>
+                    </label>
+                  </div>
+                  <div class="toggle-row">
+                    <div class="switch-label-wrap">
+                      <span class="form-label">Restrict to Business Hours</span>
+                      <span class="caption">Mutes AI calls when human team is off duty</span>
+                    </div>
+                    <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider-round"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Voice Synthesis Settings right sidebar -->
+              <div class="config-form-section">
+                <div class="config-card">
+                  <h3 class="card-title">Voice Synthesis Configuration</h3>
+                  <div class="form-group">
+                    <label class="form-label">Voice Channel Provider</label>
+                    <div class="selection-grid">
+                      <div class="selection-card active" onclick="selectVoiceProvider(this, 'azure')">Azure</div>
+                      <div class="selection-card" onclick="selectVoiceProvider(this, 'openai')">OpenAI</div>
+                      <div class="selection-card" onclick="selectVoiceProvider(this, 'elevenlabs')">ElevenLabs</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Accent / Dialect</label>
+                    <select class="form-input" style="padding-left:15px;" id="config-voice-accent">
+                      <option>English - Female (United States)</option>
+                      <option>English - Male (United Kingdom)</option>
+                      <option>English - Female (Indian English Accent)</option>
+                      <option>Spanish - Male (Latin America Accent)</option>
+                    </select>
+                  </div>
+                  <div class="slider-group">
+                    <div class="slider-header">
+                      <label class="form-label">Speech Speed Rate</label>
+                      <span>1.0x</span>
+                    </div>
+                    <input type="range" class="slider-input" min="0.5" max="1.5" step="0.1" value="1.0">
+                  </div>
+                  <div class="slider-group" style="margin-top:10px;">
+                    <div class="slider-header">
+                      <label class="form-label">Pitch Tuning</label>
+                      <span>0st</span>
+                    </div>
+                    <input type="range" class="slider-input" min="-5" max="5" step="1" value="0">
+                  </div>
+                  
+                  <div style="border-top:1px solid var(--border); padding-top:20px; display:flex; gap:15px; align-items:center;">
+                    <button class="btn btn-secondary" style="flex-grow:1;" onclick="triggerVoicePreview()"><i data-lucide="phone"></i> Preview Voice</button>
+                    <button class="btn btn-primary" onclick="alert('Configuration parameters saved successfully!')">Save Configurations</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- ==========================================
+               SUB-VIEW: WIDGET CUSTOMIZER
+               ========================================== -->
+          <div id="widget-customizer" class="dashboard-panel-view">
+            <div class="panel-header-row">
+              <div>
+                <h2>Widget Customizer</h2>
+                <p class="small-text">Brand and deploy the widget widget floating component on your live webpages.</p>
+              </div>
+            </div>
+
+            <div class="widget-customizer-layout">
+              <!-- Settings Form left -->
+              <div class="config-form-section">
+                <div class="config-card">
+                  <h3 class="card-title">Widget Styling</h3>
+                  
+                  <!-- Color customization -->
+                  <div class="form-group">
+                    <label class="form-label">Primary Brand Color</label>
+                    <div class="color-picker-wrap">
+                      <input type="color" class="color-picker-input" id="customizer-color-picker" value="#3b82f6" oninput="syncWidgetColors(this.value)">
+                      <span id="customizer-color-hex" style="font-family:monospace;">#3b82f6</span>
+                    </div>
+                  </div>
+
+                  <!-- Position & Theme selectors -->
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                    <div class="form-group">
+                      <label class="form-label">Widget Screen Position</label>
+                      <select class="form-input" style="padding-left:15px;" id="customizer-pos" onchange="syncWidgetPosition(this.value)">
+                        <option value="bottom-right" selected>Bottom Right</option>
+                        <option value="bottom-left">Bottom Left</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Theme Mode</label>
+                      <select class="form-input" style="padding-left:15px;" id="customizer-theme" onchange="syncWidgetTheme(this.value)">
+                        <option value="dark" selected>Dark Mode (Default)</option>
+                        <option value="light">Light Mode</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- Round border corners -->
+                  <div class="slider-group">
+                    <div class="slider-header">
+                      <label class="form-label">Border Radius</label>
+                      <span id="label-radius">24px</span>
+                    </div>
+                    <input type="range" class="slider-input" min="8" max="32" step="4" value="24" oninput="syncWidgetRadius(this.value)">
+                  </div>
+
+                  <!-- Toggles -->
+                  <div class="toggle-row">
+                    <div class="switch-label-wrap">
+                      <span class="form-label">Enable Voice Calling Button</span>
+                      <span class="caption">Lets customers call the AI twin directly in browser</span>
+                    </div>
+                    <label class="switch">
+                      <input type="checkbox" checked id="customizer-toggle-voice" onchange="toggleVoiceButtonVisibility()">
+                      <span class="slider-round"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Embed Script Box -->
+                <div class="config-card">
+                  <h3 class="card-title">Integration Code</h3>
+                  <p class="small-text">Copy and paste this script tag at the bottom of your HTML body to launch TwinAI.</p>
+                  <div class="script-code-box">
+                    <pre><code id="embed-script-tag">&lt;script src="https://twinai.ai/widget.js" id="twinai-script" data-id="biz_9f82d"&gt;&lt;/script&gt;</code></pre>
+                    <button class="btn btn-secondary btn-icon-only copy-btn" onclick="copyEmbedScript()" title="Copy Script"><i data-lucide="shield"></i></button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Preview Canvas right -->
+              <div class="customizer-preview-container">
+                <span class="customizer-preview-label">Live Preview Sandbox</span>
+                
+                <!-- We will show widget float preview inside. Changing customizations will affect the floating widget visually in real time! -->
+                <div style="text-align: center; color:var(--text-secondary); max-width: 250px;">
+                  <i data-lucide="bot" style="width:48px; height:48px; color:var(--primary); margin-bottom:15px;"></i>
+                  <p class="small-text">Modify details on the left. Interact with the floating widget in the corner of your screen to test styling and flows.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- ==========================================
+               SUB-VIEW: CONVERSATIONS (INBOX LOG)
+               ========================================== -->
+          <div id="conversations" class="dashboard-panel-view">
+            <div class="panel-header-row" style="margin-bottom: 20px;">
+              <div>
+                <h2>Conversations Inbox</h2>
+                <p class="small-text">Review real-time chats, voice transcripts, lead evaluations, and customer satisfaction.</p>
+              </div>
+            </div>
+
+            <!-- Inbox Split Screen -->
+            <div class="inbox-layout">
+              <!-- Left panel: chats list -->
+              <div class="inbox-sidebar">
+                <div class="inbox-search-wrap">
+                  <input type="text" class="form-input" style="padding-left:15px;" placeholder="Search transcripts..." id="inbox-search" oninput="filterConversations()">
+                  <div style="display:flex; gap:5px;">
+                    <select class="form-input" style="padding: 4px 6px; font-size:12px; flex-grow:1;" id="inbox-filter-type" onchange="filterConversations()">
+                      <option value="all">All Channels</option>
+                      <option value="chat">Chat Support</option>
+                      <option value="voice">Voice Call</option>
+                    </select>
+                    <select class="form-input" style="padding: 4px 6px; font-size:12px; flex-grow:1;" id="inbox-filter-sentiment" onchange="filterConversations()">
+                      <option value="all">All Sentiment</option>
+                      <option value="Happy">Happy</option>
+                      <option value="Neutral">Neutral</option>
+                      <option value="Angry">Angry</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="inbox-chats-scroll" id="inbox-chats-list">
+                  <!-- Dynamic entries via app.js -->
+                </div>
+              </div>
+
+              <!-- Center panel: logs transcript -->
+              <div class="inbox-chat-main">
+                <div class="inbox-chat-header">
+                  <div style="display:flex; align-items:center; gap:12px;">
+                    <div class="sidebar-user-avatar" id="inbox-active-avatar">CS</div>
+                    <div>
+                      <div style="font-weight:600;" id="inbox-active-name">Charles Smith</div>
+                      <div class="caption" id="inbox-active-details">Source: Website Widget • Chat</div>
+                    </div>
+                  </div>
+                  <button class="btn btn-secondary" onclick="exportActiveChat()"><i data-lucide="shield"></i> Export log</button>
+                </div>
+                <div class="inbox-chat-messages" id="inbox-messages-container">
+                  <!-- Transcripts parsed dynamically via app.js -->
+                </div>
+              </div>
+
+              <!-- Right panel: detailed metadata summary -->
+              <div class="inbox-details-panel">
+                <div class="details-avatar-wrap">
+                  <div class="sidebar-user-avatar" style="width: 50px; height: 50px; font-size: 18px;" id="inbox-detail-avatar">CS</div>
+                  <h3 id="inbox-detail-name">Charles Smith</h3>
+                  <div class="status-pill success" id="inbox-detail-lead-badge"><span class="status-indicator-dot"></span> Lead Score: 92</div>
+                </div>
+
+                <div class="details-row">
+                  <span class="details-label">Sentiment Assessment</span>
+                  <div class="status-pill success" style="align-self:flex-start;" id="inbox-detail-sentiment">😊 Happy</div>
+                </div>
+                <div class="details-row">
+                  <span class="details-label">AI Summary</span>
+                  <p class="small-text" id="inbox-detail-summary" style="line-height:1.4;">Customer requested quote for custom packaging and scheduled calendar event.</p>
+                </div>
+                <div class="details-row">
+                  <span class="details-label">Item / Product Discussed</span>
+                  <span class="details-value" id="inbox-detail-products">Custom Carton Pack (₹85,000)</span>
+                </div>
+                <div class="details-row">
+                  <span class="details-label">AI Confidence Rate</span>
+                  <span class="details-value" id="inbox-detail-confidence">97.4%</span>
+                </div>
+                <div class="details-row">
+                  <span class="details-label">Appointment Status</span>
+                  <span class="details-value" style="color:var(--success);" id="inbox-detail-appointment">Booked (Jul 12, 10 AM)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- ==========================================
+               SUB-VIEW: APPOINTMENT MANAGER
+               ========================================== -->
+          <div id="appointment-manager" class="dashboard-panel-view">
+            <div class="panel-header-row">
+              <div>
+                <h2>Appointments Calendar</h2>
+                <p class="small-text">Coordinate dates, schedule consultations, and manage external client meetings.</p>
+              </div>
+              <div style="display:flex; gap:10px;">
+                <button class="btn btn-secondary" onclick="alert('Google Calendar synced successfully!')"><i data-lucide="calendar"></i> Sync Google Calendar</button>
+                <button class="btn btn-secondary" onclick="alert('Outlook Calendar synced successfully!')"><i data-lucide="shield"></i> Sync Outlook Calendar</button>
+              </div>
+            </div>
+
+            <!-- Calendar components -->
+            <div class="calendar-layout">
+              <!-- Calendar Card Left -->
+              <div class="calendar-card">
+                <div class="calendar-header">
+                  <h3 id="calendar-current-month">July 2026</h3>
+                  <div style="display:flex; gap:10px;">
+                    <button class="btn btn-secondary btn-icon-only" onclick="prevMonth()"><i data-lucide="shield"></i></button>
+                    <button class="btn btn-secondary btn-icon-only" onclick="nextMonth()"><i data-lucide="shield"></i></button>
+                  </div>
+                </div>
+                <div class="calendar-grid" id="calendar-grid-dates">
+                  <!-- Created via app.js -->
+                </div>
+              </div>
+
+              <!-- Upcoming Schedule list Right -->
+              <div class="meetings-list-card">
+                <h3 class="card-title">Schedule for <span id="schedule-selected-date">July 12</span></h3>
+                <div class="meeting-timeline" id="calendar-meetings-timeline">
+                  <!-- Loaded via app.js depending on active date selected -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- ==========================================
+               SUB-VIEW: LEADS
+               ========================================== -->
+          <div id="leads" class="dashboard-panel-view">
+            <div class="panel-header-row">
+              <div>
+                <h2>Leads Management</h2>
+                <p class="small-text">Filter and export customer details gathered dynamically during conversations.</p>
+              </div>
+              <button class="btn btn-secondary" onclick="exportLeadsCSV()"><i data-lucide="upload"></i> Export CSV</button>
+            </div>
+
+            <!-- Search Filters -->
+            <div class="leads-filter-row">
+              <input type="text" class="form-input" style="padding-left:15px; max-width: 300px;" placeholder="Search by name, email..." id="leads-search-input" oninput="filterLeadsTable()">
+              <select class="form-input" style="padding-left:15px; max-width: 200px;" id="leads-filter-priority" onchange="filterLeadsTable()">
+                <option value="all">All Priorities</option>
+                <option value="High">High Priority</option>
+                <option value="Medium">Medium Priority</option>
+                <option value="Low">Low Priority</option>
+              </select>
+              <select class="form-input" style="padding-left:15px; max-width: 200px;" id="leads-filter-status" onchange="filterLeadsTable()">
+                <option value="all">All Statuses</option>
+                <option value="Follow-up">Needs Follow-up</option>
+                <option value="Negotiation">Negotiation</option>
+                <option value="Closed">Closed Won</option>
+              </select>
+            </div>
+
+            <!-- Leads database table -->
+            <div class="table-card">
+              <div class="table-wrapper">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Customer</th>
+                      <th>Email</th>
+                      <th>Phone</th>
+                      <th>Est. Budget</th>
+                      <th>Core Interest</th>
+                      <th>Priority</th>
+                      <th>Status</th>
+                      <th>Assigned Agent</th>
+                    </tr>
+                  </thead>
+                  <tbody id="leads-table-body">
+                    <!-- Dynamic entries via app.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- ==========================================
+               SUB-VIEW: ANALYTICS
+               ========================================== -->
+          <div id="analytics" class="dashboard-panel-view">
+            <div class="panel-header-row">
+              <div>
+                <h2>Performance Analytics</h2>
+                <p class="small-text">Review conversation counts, lead funnels, response times, and sentiment graphs.</p>
+              </div>
+            </div>
+
+            <!-- Charts Row 1 -->
+            <div class="charts-row">
+              <div class="chart-card">
+                <div class="chart-header">
+                  <h3 class="card-title">Daily Conversations Trends</h3>
+                </div>
+                <div class="chart-container-inner">
+                  <canvas id="chart-analytics-daily"></canvas>
+                </div>
+              </div>
+              <div class="chart-card">
+                <div class="chart-header">
+                  <h3 class="card-title">Customer Sentiment Assessment</h3>
+                </div>
+                <div class="chart-container-inner">
+                  <canvas id="chart-analytics-sentiment"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Charts Row 2 -->
+            <div class="charts-row" style="grid-template-columns: 1fr 1fr;">
+              <div class="chart-card">
+                <div class="chart-header">
+                  <h3 class="card-title">Peak Conversations Hours</h3>
+                </div>
+                <div class="chart-container-inner">
+                  <canvas id="chart-analytics-peak-hours"></canvas>
+                </div>
+              </div>
+              <div class="chart-card">
+                <div class="chart-header">
+                  <h3 class="card-title">Usage Channel Breakdown</h3>
+                </div>
+                <div class="chart-container-inner">
+                  <canvas id="chart-analytics-usage"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- AI Insights Panel -->
+            <div class="config-card" style="margin-top: 30px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);">
+              <div style="display:flex; align-items:center; gap:12px;">
+                <i data-lucide="brain" style="color: var(--secondary)"></i>
+                <h3 class="card-title">TwinAI Strategic AI Recommendations</h3>
+              </div>
+              <p class="small-text" style="color:var(--text-primary); line-height:1.6; margin-top:10px;">
+                "We noticed 48% of customers ask about the <strong>Refund and Return Policy</strong> during non-business hours, which currently falls back to human agents because the database index is missing. We recommend adding a refund FAQ markdown document to the Knowledge Base."
+              </p>
+              <div style="margin-top:15px;">
+                <button class="btn btn-primary" onclick="switchDashboardTab(null, 'knowledge-base')">Add Refund Policy to Knowledge Base</button>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- ==========================================
+               SUB-VIEW: BILLING & PLANS
+               ========================================== -->
+          <div id="billing" class="dashboard-panel-view">
+            <div class="panel-header-row">
+              <div>
+                <h2>Billing & Subscriptions</h2>
+                <p class="small-text">Manage your pricing plans, extra minutes purchase, and storage capacities.</p>
+              </div>
+            </div>
+
+            <!-- Gauges metrics -->
+            <div class="billing-usage-container">
+              <div class="usage-card">
+                <h3 class="caption">Voice Minutes Usage</h3>
+                <div class="metric-value" style="margin: 15px 0;">412 / 1,000</div>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar-fill" style="width: 41.2%; background: var(--secondary);"></div>
+                </div>
+                <p class="caption">Resets on Jul 15, 2026</p>
+              </div>
+              <div class="usage-card">
+                <h3 class="caption">AI Tokens Usage</h3>
+                <div class="metric-value" style="margin: 15px 0;">6.2M / 10M</div>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar-fill" style="width: 62%; background: var(--primary);"></div>
+                </div>
+                <p class="caption">Resets on Jul 15, 2026</p>
+              </div>
+              <div class="usage-card">
+                <h3 class="caption">RAG Storage capacity</h3>
+                <div class="metric-value" style="margin: 15px 0;">1.2GB / 5.0GB</div>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar-fill" style="width: 24%; background: var(--accent-cyan);"></div>
+                </div>
+                <p class="caption">80% storage space remaining</p>
+              </div>
+            </div>
+
+            <!-- Invoice lists table -->
+            <div class="table-card" style="margin-top:30px;">
+              <div class="panel-header-row" style="padding:20px 24px; margin-bottom:0; border-bottom:1px solid var(--border)">
+                <h3>Payment & Invoices</h3>
+              </div>
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Invoice ID</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Payment Method</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#TW-8521</td>
+                    <td>Jun 15, 2026</td>
+                    <td>$99.00</td>
+                    <td>Visa ending in 4242</td>
+                    <td><span class="status-pill success"><span class="status-indicator-dot"></span> Paid</span></td>
+                    <td><button class="btn btn-secondary" style="padding: 4px 8px; font-size:12px;" onclick="alert('Downloading invoice PDF...')">Download Invoice</button></td>
+                  </tr>
+                  <tr>
+                    <td>#TW-7965</td>
+                    <td>May 15, 2026</td>
+                    <td>$99.00</td>
+                    <td>Visa ending in 4242</td>
+                    <td><span class="status-pill success"><span class="status-indicator-dot"></span> Paid</span></td>
+                    <td><button class="btn btn-secondary" style="padding: 4px 8px; font-size:12px;" onclick="alert('Downloading invoice PDF...')">Download Invoice</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+          <!-- ==========================================
+               SUB-VIEW: SETTINGS
+               ========================================== -->
+          <div id="settings" class="dashboard-panel-view">
+            <div class="panel-header-row">
+              <div>
+                <h2>Settings</h2>
+                <p class="small-text">Configure business identity settings, API access, roles, and SMTP nodes.</p>
+              </div>
+            </div>
+
+            <div class="config-layout">
+              <div class="config-form-section">
+                <!-- Business Info -->
+                <div class="config-card">
+                  <h3 class="card-title">Business Profile</h3>
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                    <div class="form-group">
+                      <label class="form-label">Corporate Name</label>
+                      <input type="text" class="form-input" style="padding-left:15px;" id="settings-biz-name" value="Acme Corp">
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Support Email</label>
+                      <input type="email" class="form-input" style="padding-left:15px;" id="settings-biz-email" value="support@acme.com">
+                    </div>
+                  </div>
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                    <div class="form-group">
+                      <label class="form-label">Account Password</label>
+                      <input type="password" class="form-input" style="padding-left:15px;" value="••••••••">
+                    </div>
+                    <div class="form-group" style="justify-content: flex-end;">
+                      <button class="btn btn-primary" onclick="updateSettingsProfile()">Save Business Profiles</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- API tokens -->
+                <div class="config-card">
+                  <h3 class="card-title">API tokens & Webhooks</h3>
+                  <p class="small-text">Generate secure keys to pipe conversational leads to external CRMs.</p>
+                  
+                  <div class="form-group" style="margin-top:15px;">
+                    <label class="form-label">Secret API Key</label>
+                    <div style="display:flex; gap:10px;">
+                      <input type="text" class="form-input" style="padding-left:15px; font-family:monospace;" readonly value="tw_sk_live_a89f8d1c5b8e9">
+                      <button class="btn btn-secondary" onclick="alert('API secret regenerated successfully!')">Regenerate Key</button>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label">Webhook URL endpoint</label>
+                    <input type="url" class="form-input" style="padding-left:15px;" value="https://api.acme.com/twinai-webhook">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Roles / Team list -->
+              <div class="config-form-section">
+                <div class="config-card">
+                  <h3 class="card-title">Team Roles & Permissions</h3>
+                  
+                  <div style="display:flex; flex-direction:column; gap:12px; margin-top: 15px;" id="settings-team-list">
+                    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); padding-bottom:8px;">
+                      <div>
+                        <div style="font-weight:600; font-size:14px;">John Doe</div>
+                        <div class="caption">Admin</div>
+                      </div>
+                      <span class="caption">Owner</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); padding-bottom:8px;">
+                      <div>
+                        <div style="font-weight:600; font-size:14px;">Sarah Jenkins</div>
+                        <div class="caption">support@acme.com</div>
+                      </div>
+                      <button class="btn btn-secondary" style="padding:4px 8px; font-size:11px;" onclick="removeTeamMember(this)">Remove</button>
+                    </div>
+                  </div>
+
+                  <!-- Invite user -->
+                  <div style="border-top:1px solid var(--border); padding-top:20px;">
+                    <div class="form-group">
+                      <label class="form-label">Invite Co-worker</label>
+                      <div style="display:flex; gap:10px;">
+                        <input type="email" class="form-input" style="padding-left:15px;" placeholder="colleague@acme.com" id="settings-invite-email">
+                        <button class="btn btn-primary" onclick="inviteTeamMember()">Invite</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- ==========================================
+               SUB-VIEW: ADMIN DASHBOARD (SUPER ADMIN)
+               ========================================== -->
+          <div id="admin-dashboard" class="dashboard-panel-view">
+            <div class="panel-header-row">
+              <div>
+                <h2>Super Admin Portal</h2>
+                <p class="small-text">Monitor overall system health, total tenants, server loads, and active subscriptions.</p>
+              </div>
+            </div>
+
+            <!-- Health metrics -->
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <div class="metric-header">
+                  <span>Total Tenant Businesses</span>
+                  <div class="metric-icon-box"><i data-lucide="users" style="color:var(--primary)"></i></div>
+                </div>
+                <div class="metric-value">12,482</div>
+                <div class="metric-footer">
+                  <span class="trend-badge up">+12.4% this week</span>
+                </div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-header">
+                  <span>Super Admin Monthly Revenue</span>
+                  <div class="metric-icon-box"><i data-lucide="credit-card" style="color:var(--success)"></i></div>
+                </div>
+                <div class="metric-value">$842,500</div>
+                <div class="metric-footer">
+                  <span class="trend-badge up">+19.8% this month</span>
+                </div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-header">
+                  <span>Average GPU Server Load</span>
+                  <div class="metric-icon-box"><i data-lucide="bot" style="color:var(--warning)"></i></div>
+                </div>
+                <div class="metric-value">64.2%</div>
+                <div class="metric-footer">
+                  <span class="trend-badge down">Healthy threshold</span>
+                </div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-header">
+                  <span>Total Daily AI Requests</span>
+                  <div class="metric-icon-box"><i data-lucide="brain" style="color:var(--accent-cyan)"></i></div>
+                </div>
+                <div class="metric-value">8.4M</div>
+                <div class="metric-footer">
+                  <span class="trend-badge up">+8.2% vs peak</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Audit Logs -->
+            <div class="table-card">
+              <div class="panel-header-row" style="padding: 20px 24px; margin-bottom: 0; border-bottom: 1px solid var(--border);">
+                <h3>System Logs & Audit Trials</h3>
+                <span class="caption">Live Stream</span>
+              </div>
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Timestamp</th>
+                    <th>Business ID</th>
+                    <th>Action Event</th>
+                    <th>Category</th>
+                    <th>Latency</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="caption">2026-06-27 18:19:41</td>
+                    <td style="font-family:monospace; font-size:12px;">biz_9f82d</td>
+                    <td>Vector Retrieval (RAG) Query</td>
+                    <td>Inference</td>
+                    <td>184ms</td>
+                    <td><span class="status-pill success"><span class="status-indicator-dot"></span> Completed</span></td>
+                  </tr>
+                  <tr>
+                    <td class="caption">2026-06-27 18:19:35</td>
+                    <td style="font-family:monospace; font-size:12px;">biz_3b8ac</td>
+                    <td>Azure Audio Voice Synthesis</td>
+                    <td>Synthesis</td>
+                    <td>310ms</td>
+                    <td><span class="status-pill success"><span class="status-indicator-dot"></span> Completed</span></td>
+                  </tr>
+                  <tr>
+                    <td class="caption">2026-06-27 18:18:02</td>
+                    <td style="font-family:monospace; font-size:12px;">biz_2a4fd</td>
+                    <td>Website crawler initialization</td>
+                    <td>Crawling</td>
+                    <td>1.2s</td>
+                    <td><span class="status-pill warning"><span class="status-indicator-dot"></span> Indexing</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+
+  <!-- ==========================================
+       4. CLIENT CHAT EMBEDDED WIDGET (GLOBAL)
+       ========================================== -->
+  <div class="client-widget-container" id="global-chatbot-widget">
+    <!-- Bubble Button -->
+    <button class="widget-floating-trigger" id="widget-floating-btn" onclick="toggleWidgetChatWindow()" style="border-radius: 50%;">
+      <i data-lucide="message-circle" id="widget-icon-msg"></i>
+      <i data-lucide="shield" id="widget-icon-close" style="display:none;"></i>
+    </button>
+
+    <!-- Chat Card container -->
+    <div class="widget-chat-box" id="widget-chat-popup">
+      <!-- Chat Header -->
+      <div class="widget-header">
+        <div class="widget-avatar-wrap">
+          <div class="widget-avatar-circle" id="widget-avatar-indicator">🤖</div>
+          <div class="widget-title-info">
+            <span class="widget-title-name" id="widget-display-name">TwinAI Agent</span>
+            <span class="widget-title-status">
+              <span class="status-indicator-dot" style="background:var(--success); width:6px; height:6px;"></span>
+              Online
+            </span>
+          </div>
+        </div>
+        <div class="widget-header-actions">
+          <button class="btn btn-secondary btn-icon-only" style="width:30px; height:30px;" onclick="simulateWidgetCallScreen()" id="widget-btn-call" title="Place Voice Call">
+            <i data-lucide="phone" style="width:14px; height:14px;"></i>
+          </button>
+          <button class="btn-icon-only" style="width:30px; height:30px; border:none; background:none;" onclick="toggleWidgetChatWindow()">
+            <i data-lucide="shield" style="width:14px; height:14px;"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Messages Body -->
+      <div class="widget-messages-area" id="widget-chat-messages-log">
+        <div class="mockup-bubble ai" id="widget-welcome-bubble">Welcome! I am trained on TwinAI's policies. Ask me anything, or try selecting a query on the left.</div>
+      </div>
+
+      <!-- Quick reply suggestion chips -->
+      <div class="quick-replies-wrap" id="widget-quick-replies-container">
+        <div class="quick-reply-chip" onclick="submitWidgetMessage('I need a laptop under ₹60,000.')">💻 Laptop search</div>
+        <div class="quick-reply-chip" onclick="submitWidgetMessage('Can I schedule a call?')">📅 Schedule call</div>
+        <div class="quick-reply-chip" onclick="submitWidgetMessage('What is TwinAI?')">ℹ️ About TwinAI</div>
+      </div>
+
+      <!-- Input box -->
+      <div class="widget-input-wrapper">
+        <input type="text" class="widget-chat-input" placeholder="Ask details..." id="widget-chat-input" onkeydown="handleWidgetKey(event)">
+        <button class="btn btn-primary" style="padding: 8px 12px; border-radius: 8px;" onclick="submitWidgetChat()"><i data-lucide="bot"></i></button>
+      </div>
+
+      <!-- Simulated Voice Call overlay screen -->
+      <div class="widget-voice-call-screen" id="widget-call-overlay">
+        <div style="text-align: center;">
+          <h3 id="call-status-header" style="margin-bottom:5px;">Ringing...</h3>
+          <p class="caption">TwinAI Voice Line</p>
+        </div>
+
+        <div class="call-avatar-outer">
+          <div class="call-pulse-ring" id="call-ring-animation"></div>
+          <div class="call-avatar-inner" id="call-avatar-indicator-icon">🎙️</div>
+        </div>
+
+        <!-- Pulse speaking waveform -->
+        <div class="voice-wave-container" id="call-speech-waveform" style="opacity: 0;">
+          <div class="voice-wave-bar"></div>
+          <div class="voice-wave-bar"></div>
+          <div class="voice-wave-bar"></div>
+          <div class="voice-wave-bar"></div>
+          <div class="voice-wave-bar"></div>
+          <div class="voice-wave-bar"></div>
+        </div>
+
+        <div style="text-align: center; max-height: 80px; overflow-y: auto;" class="caption" id="call-voice-transcripts">
+          AI is listening...
+        </div>
+
+        <div class="call-actions-row">
+          <button class="btn-call-circle mute" onclick="alert('Mic muted!')" title="Mute Microphone">
+            <i data-lucide="users"></i>
+          </button>
+          <button class="btn-call-circle hangup" onclick="hangupWidgetCall()" title="End Call">
+            <i data-lucide="phone" style="transform: rotate(135deg);"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lucide & ChartJS & Main script imports -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
