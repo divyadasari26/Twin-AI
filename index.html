@@ -564,7 +564,7 @@
           <p class="small-text">Deploy custom twins within 5 minutes.</p>
         </div>
         <form onsubmit="handleRegister(event)">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+          <div class="form-grid-2">
             <div class="form-group">
               <label class="form-label">Business Name</label>
               <div class="form-input-wrap">
@@ -580,7 +580,7 @@
               </div>
             </div>
           </div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+          <div class="form-grid-2">
             <div class="form-group">
               <label class="form-label">Phone Number</label>
               <div class="form-input-wrap">
@@ -596,7 +596,7 @@
               </div>
             </div>
           </div>
-          <div style="display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 10px;">
+          <div class="form-grid-3">
             <div class="form-group">
               <label class="form-label">Industry</label>
               <select class="form-input" style="padding-left: 15px;">
@@ -657,13 +657,13 @@
           <p class="small-text" id="verify-sub-text">We sent a 6-digit passcode code to your registered email.</p>
         </div>
         <form onsubmit="handleVerify(event)">
-          <div style="display: flex; gap: 10px; justify-content: center; margin: 15px 0;">
-            <input type="text" maxlength="1" class="form-input" style="width:50px; text-align:center; padding: 10px 0;" value="7" required>
-            <input type="text" maxlength="1" class="form-input" style="width:50px; text-align:center; padding: 10px 0;" value="1" required>
-            <input type="text" maxlength="1" class="form-input" style="width:50px; text-align:center; padding: 10px 0;" value="9" required>
-            <input type="text" maxlength="1" class="form-input" style="width:50px; text-align:center; padding: 10px 0;" value="4" required>
-            <input type="text" maxlength="1" class="form-input" style="width:50px; text-align:center; padding: 10px 0;" value="6" required>
-            <input type="text" maxlength="1" class="form-input" style="width:50px; text-align:center; padding: 10px 0;" value="2" required>
+          <div class="verification-code-container">
+            <input type="text" maxlength="1" class="form-input verification-input" value="7" required>
+            <input type="text" maxlength="1" class="form-input verification-input" value="1" required>
+            <input type="text" maxlength="1" class="form-input verification-input" value="9" required>
+            <input type="text" maxlength="1" class="form-input verification-input" value="4" required>
+            <input type="text" maxlength="1" class="form-input verification-input" value="6" required>
+            <input type="text" maxlength="1" class="form-input verification-input" value="2" required>
           </div>
           <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px;">Confirm Codes</button>
         </form>
@@ -681,11 +681,12 @@
     <div class="dashboard-layout">
       <!-- Sidebar -->
       <aside class="dashboard-sidebar" id="app-sidebar">
-        <div class="sidebar-header">
+        <div class="sidebar-header" style="display:flex; justify-content:space-between; align-items:center; width:100%;">
           <div class="logo-container" onclick="showView('landing')">
             <div class="logo-icon"><i data-lucide="bot"></i></div>
             <span>TwinAI</span>
           </div>
+          <button class="btn-icon-only mobile-close-sidebar-btn" onclick="toggleMobileSidebar()" style="display:none; border:none; background:none; color:var(--text-secondary);"><i data-lucide="x"></i></button>
         </div>
         <nav class="sidebar-nav">
           <a href="#" class="sidebar-nav-item active" onclick="switchDashboardTab(event, 'dashboard-home')">
@@ -737,7 +738,7 @@
         <!-- Header navbar -->
         <header class="dashboard-navbar">
           <div class="navbar-left">
-            <button class="btn btn-secondary sidebar-toggle-btn" onclick="toggleMobileSidebar()" style="padding:8px;"><i data-lucide="home"></i></button>
+            <button class="btn btn-secondary sidebar-toggle-btn" onclick="toggleMobileSidebar()" style="padding:8px;"><i data-lucide="menu"></i></button>
             <div class="search-bar-wrap">
               <i data-lucide="search"></i>
               <input type="text" class="navbar-search" placeholder="Search resources, templates, twins...">
@@ -910,7 +911,7 @@
               <div class="upload-card">
                 <h3 class="card-title" style="margin-bottom:15px;">Add New Data Source</h3>
                 
-                <div style="display: flex; gap: 10px; margin-bottom: 20px; border-bottom:1px solid var(--border); padding-bottom:15px;">
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; border-bottom:1px solid var(--border); padding-bottom:15px;">
                   <button class="pricing-tab active" id="btn-upload-file-tab" onclick="toggleUploadType('file')">Upload Document</button>
                   <button class="pricing-tab" id="btn-upload-url-tab" onclick="toggleUploadType('url')">Crawl Website URL</button>
                 </div>
@@ -1015,7 +1016,7 @@
                     <label class="form-label">Twin AI Display Name</label>
                     <input type="text" class="form-input" style="padding-left:15px;" id="config-twin-name" value="TwinAI Agent" oninput="syncCustomizerPreview()">
                   </div>
-                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                  <div class="form-grid-2">
                     <div class="form-group">
                       <label class="form-label">Primary Tone</label>
                       <select class="form-input" style="padding-left:15px;" id="config-twin-tone">
@@ -1159,7 +1160,7 @@
                   </div>
 
                   <!-- Position & Theme selectors -->
-                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                  <div class="form-grid-2">
                     <div class="form-group">
                       <label class="form-label">Widget Screen Position</label>
                       <select class="form-input" style="padding-left:15px;" id="customizer-pos" onchange="syncWidgetPosition(this.value)">
@@ -1263,6 +1264,7 @@
               <div class="inbox-chat-main">
                 <div class="inbox-chat-header">
                   <div style="display:flex; align-items:center; gap:12px;">
+                    <button class="btn btn-secondary mobile-back-btn" onclick="document.querySelector('.inbox-layout').classList.remove('mobile-chat-active')" style="display:none; padding: 6px 10px; margin-right: 5px; height: 36px; align-items: center; justify-content: center;"><i data-lucide="chevron-left" style="width:16px; height:16px;"></i></button>
                     <div class="sidebar-user-avatar" id="inbox-active-avatar">CS</div>
                     <div>
                       <div style="font-weight:600;" id="inbox-active-name">Charles Smith</div>
@@ -1437,7 +1439,7 @@
             </div>
 
             <!-- Charts Row 2 -->
-            <div class="charts-row" style="grid-template-columns: 1fr 1fr;">
+            <div class="charts-row">
               <div class="chart-card">
                 <div class="chart-header">
                   <h3 class="card-title">Peak Conversations Hours</h3>
@@ -1566,7 +1568,7 @@
                 <!-- Business Info -->
                 <div class="config-card">
                   <h3 class="card-title">Business Profile</h3>
-                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                  <div class="form-grid-2">
                     <div class="form-group">
                       <label class="form-label">Corporate Name</label>
                       <input type="text" class="form-input" style="padding-left:15px;" id="settings-biz-name" value="Acme Corp">
@@ -1576,7 +1578,7 @@
                       <input type="email" class="form-input" style="padding-left:15px;" id="settings-biz-email" value="support@acme.com">
                     </div>
                   </div>
-                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                  <div class="form-grid-2">
                     <div class="form-group">
                       <label class="form-label">Account Password</label>
                       <input type="password" class="form-input" style="padding-left:15px;" value="••••••••">

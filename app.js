@@ -641,6 +641,12 @@ function loadConversationDetails(index) {
     else card.classList.remove('active');
   });
 
+  // Toggle layout class on mobile view to transition view from list to conversation details
+  const layout = document.querySelector('.inbox-layout');
+  if (layout) {
+    layout.classList.add('mobile-chat-active');
+  }
+
   // Top header details
   document.getElementById('inbox-active-avatar').innerText = getInitials(chat.name);
   document.getElementById('inbox-active-name').innerText = chat.name;
