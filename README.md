@@ -4,6 +4,7 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![CSS3](https://img.shields.io/badge/CSS3-Modern_Glassmorphism-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Active_Production-success?style=for-the-badge)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/divyadasari26/Twin-AI)
 
 **TwinAI** is an enterprise-grade AI Digital Employee dashboard and landing web application designed to empower businesses 24/7. Built with cutting-edge front-end engineering, rich glassmorphism aesthetics, and dynamic kinetic typography animations, TwinAI allows brands to deploy customized AI agents that answer customer inquiries, place live voice calls, book appointments, collect structured lead data, and calculate instant proposals.
 
